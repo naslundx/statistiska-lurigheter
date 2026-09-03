@@ -1,0 +1,779 @@
+{
+  "site": {
+    "title": "Statistiska lurigheter",
+    "author": "Marcus Näslund",
+    "linkedin": "https://www.linkedin.com/in/naslundx/"
+  },
+
+  "intro": {
+    "title": "Statistiska lurigheter",
+    "subtitle": "Vår intuition räcker inte alltid – särskilt inte i valtider.",
+    "description": "Inför valet 2026 väller det in siffror, diagram och opinionsmätningar. Följ med på en kort, interaktiv resa – kan du hänga med utan att bli lurad?",
+    "start": "Sätt igång"
+  },
+
+  "topics": [
+    {
+      "id": "medelvarde",
+      "title": "Medelvärde eller median?",
+      "variables": {
+        "stad": ["Lund", "Malmö", "Umeå", "Kiruna", "Visby"]
+      },
+      "parts": [
+        {
+          "lines": [
+            "Åtta kompisar i $stad jämför hur många *följare* de har på sociala medier.",
+            "Vi ritar in varje kompis som en prick."
+          ]
+        },
+        {
+          "lines": [
+            "Här är de åtta kompisarna (blå prickar).",
+            {
+              "graph": {
+                "xRange": [0, 10],
+                "yRange": [0, 700],
+                "series": [
+                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] }
+                ],
+                "xLabel": "kompisarna",
+                "yLabel": "följare",
+                "xEnds": ["", ""]
+              }
+            },
+            "Några hundra följare var – ganska jämnt."
+          ]
+        },
+        {
+          "lines": [
+            "Men så gick en av kompisarna *viral* – hen har *3000* följare!",
+            {
+              "graph": {
+                "xRange": [0, 10],
+                "yRange": [0, 3200],
+                "series": [
+                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] },
+                  { "type": "points", "color": "orange", "data": [[9,3000]] }
+                ],
+                "legend": [
+                  { "color": "blue", "label": "kompisar" },
+                  { "color": "orange", "label": "kändisen" }
+                ],
+                "xLabel": "kompisarna",
+                "yLabel": "följare",
+                "xEnds": ["", ""]
+              }
+            },
+            "Den orangea pricken drar iväg hela skalan."
+          ]
+        },
+        {
+          "lines": [
+            "Nu ritar vi *medelvärdet* (lila) och *medianen* (grön).",
+            {
+              "graph": {
+                "xRange": [0, 10],
+                "yRange": [0, 3200],
+                "series": [
+                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] },
+                  { "type": "points", "color": "orange", "data": [[9,3000]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[0,911],[10,911]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[0,450],[10,450]] }
+                ],
+                "legend": [
+                  { "color": "blue", "label": "kompisar" },
+                  { "color": "orange", "label": "kändisen" },
+                  { "type": "dashed", "color": "purple", "label": "medelvärde (911)" },
+                  { "type": "dashed", "color": "green", "label": "median (450)" }
+                ],
+                "xLabel": "kompisarna",
+                "yLabel": "följare",
+                "xEnds": ["", ""]
+              }
+            },
+            "*Medelvärdet* hamnar ovanför *alla* utom kändisen. *Medianen* ligger mitt i gänget."
+          ]
+        },
+        {
+          "lines": [
+            "Vilket beskriver *den typiska kompisen* bäst?",
+            {
+              "options": {
+                "id": "basta",
+                "choices": ["Medelvärdet", "Medianen"],
+                "correct": "Medianen",
+                "reveal": {
+                  "Medelvärdet": ["Men nästan ingen har så många följare – snittet är lurat av kändisen."],
+                  "Medianen": ["Precis! Medianen bryr sig inte om det extrema värdet."],
+                  "*": ["Medianen är *mittvärdet* – lika många över som under."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "*Medelvärdet* dras iväg av extrema värden. *Medianen* står emot.",
+            "Precis så funkar löner: några få höginkomsttagare drar upp *snittlönen*, medan *medianlönen* beskriver de flesta bättre."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "langsvans",
+      "title": "Den långa svansen",
+      "parts": [
+        {
+          "lines": [
+            "En kundtjänst mäter *svarstiden* på alla ärenden.",
+            "De flesta får svar snabbt – men några få får vänta *länge*.",
+            "Det bildar en *lång svans* långt till höger."
+          ]
+        },
+        {
+          "lines": [
+            "Här är läget idag, med tre mått inritade:",
+            {
+              "graph": {
+                "xRange": [0, 32],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "color": "blue", "barWidth": 1.7, "data": [[2,3],[4,10],[6,22],[8,28],[10,20],[12,12],[14,8],[16,5],[18,4],[20,3],[22,2],[24,2],[26,2],[28,1],[30,1]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[8,0],[8,34]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[10,0],[10,34]] },
+                  { "type": "line", "color": "red", "style": "dashed", "data": [[18,0],[18,34]] }
+                ],
+                "legend": [
+                  { "type": "dashed", "color": "green", "label": "median (8 min)" },
+                  { "type": "dashed", "color": "purple", "label": "snitt (10 min)" },
+                  { "type": "dashed", "color": "red", "label": "P90 (18 min)" }
+                ],
+                "xLabel": "svarstid (min)",
+                "yLabel": "antal ärenden"
+              }
+            },
+            "*Median* = mittvärdet, *snitt* = genomsnittet, *P90* = det 9 av 10 klarar sig under."
+          ]
+        },
+        {
+          "lines": [
+            "Chefen säger: *sänk svarstiderna!*",
+            "Men det kan betyda olika saker. Ska vi rikta in oss på de *allra långsammaste* ärendena, eller *slumpvis valda*?",
+            "Om vi vill hjälpa dem som väntar *längst* – vilken strategi?",
+            {
+              "options": {
+                "id": "strategi",
+                "choices": ["De allra långsammaste", "Slumpvis valda"],
+                "correct": "De allra långsammaste",
+                "reveal": {
+                  "*": ["Just det. Men titta vad som händer med snitt, median och P90 i båda fallen."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "*Strategi A:* vi fixar de *allra långsammaste* ärendena – svansen kapas.",
+            {
+              "graph": {
+                "xRange": [0, 32],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "color": "blue", "barWidth": 1.7, "data": [[2,3],[4,12],[6,25],[8,32],[10,23],[12,16],[14,6],[16,4],[18,2]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[8,0],[8,34]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[9,0],[9,34]] },
+                  { "type": "line", "color": "red", "style": "dashed", "data": [[12,0],[12,34]] }
+                ],
+                "legend": [
+                  { "type": "dashed", "color": "green", "label": "median (8 min)" },
+                  { "type": "dashed", "color": "purple", "label": "snitt (9 min)" },
+                  { "type": "dashed", "color": "red", "label": "P90 (12 min)" }
+                ],
+                "xLabel": "svarstid (min)",
+                "yLabel": "antal ärenden"
+              }
+            },
+            "*P90* rasar från 18 till 12 – men *medianen* står kvar på 8."
+          ]
+        },
+        {
+          "lines": [
+            "*Strategi B:* vi förbättrar *slumpvis valda* ärenden lite grann – bulken skiftar vänster.",
+            {
+              "graph": {
+                "xRange": [0, 32],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "color": "blue", "barWidth": 1.7, "data": [[2,12],[4,24],[6,28],[8,18],[10,11],[12,8],[14,6],[16,4],[18,3],[20,2],[22,2],[24,2],[26,1],[28,1],[30,1]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[6,0],[6,34]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[9,0],[9,34]] },
+                  { "type": "line", "color": "red", "style": "dashed", "data": [[16,0],[16,34]] }
+                ],
+                "legend": [
+                  { "type": "dashed", "color": "green", "label": "median (6 min)" },
+                  { "type": "dashed", "color": "purple", "label": "snitt (9 min)" },
+                  { "type": "dashed", "color": "red", "label": "P90 (16 min)" }
+                ],
+                "xLabel": "svarstid (min)",
+                "yLabel": "antal ärenden"
+              }
+            },
+            "Nu sjunker *medianen* till 6 – men *P90* står nästan kvar, svansen finns ju kvar."
+          ]
+        },
+        {
+          "lines": [
+            "Samma önskan – *sänk svarstiderna* – gav helt olika resultat.",
+            "*Snitt*, *median* och *P90* svarar på olika frågor.",
+            "Bryr du dig om de värst drabbade? Titta på *P90* och svansen. Om den typiska kunden? Titta på *medianen*."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "korrelation",
+      "title": "Glass och olyckor",
+      "parts": [
+        {
+          "lines": [
+            "På sommaren säljs det massor av *glass*.",
+            "På sommaren händer också fler *drunkningsolyckor*."
+          ]
+        },
+        {
+          "lines": [
+            "Vi ritar in dagarna i ett diagram: glassförsäljning åt höger, olyckor uppåt.",
+            {
+              "graph": {
+                "xRange": [0, 100],
+                "yRange": [0, 45],
+                "series": [
+                  { "type": "points", "color": "blue", "data": [[15,7],[25,9],[30,8],[40,13],[48,15],[55,14],[62,19],[70,21],[80,24],[90,28]] },
+                  { "type": "line", "color": "red", "data": [[12,5],[95,30]] }
+                ],
+                "legend": [
+                  { "color": "blue", "label": "en dag" },
+                  { "type": "line", "color": "red", "label": "trend" }
+                ],
+                "xLabel": "glassförsäljning →",
+                "yLabel": "olyckor →",
+                "xEnds": ["", ""],
+                "yEnds": ["", ""]
+              }
+            },
+            "Ju mer glass som säljs, desto fler olyckor. Prickarna följs åt uppåt."
+          ]
+        },
+        {
+          "lines": [
+            "Betyder det att *glassen orsakar* olyckorna?",
+            {
+              "options": {
+                "id": "orsak",
+                "choices": ["Ja", "Nej"],
+                "correct": "Nej",
+                "reveal": {
+                  "*": ["Troligen inte – förmodligen ligger något annat bakom *båda*."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Troligtvis är det *värmen*.",
+            "När det är varmt äter vi mer glass...",
+            "...och fler badar, så fler olyckor händer.",
+            "Värmen skulle då vara en *bakomliggande orsak* till båda."
+          ]
+        },
+        {
+          "lines": [
+            "Men vi kan inte vara *helt säkra* utifrån den här statistiken.",
+            "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt – men diagrammet *ensamt* kan inte avgöra det.",
+            "Att två saker följs åt kallas *korrelation* – och bevisar aldrig *orsak* på egen hand."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "extrapolering",
+      "title": "Extrapolering",
+      "parts": [
+        {
+          "lines": [
+            "Ett barn växer ganska jämnt varje år. Vi mäter längden från 1 till 12 år.",
+            {
+              "graph": {
+                "xRange": [0, 13],
+                "yRange": [0, 170],
+                "series": [
+                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150]] },
+                  { "type": "line", "color": "blue", "data": [[1,75],[12,150]] }
+                ],
+                "legend": [
+                  { "color": "green", "label": "uppmätt längd" },
+                  { "type": "line", "color": "blue", "label": "trend" }
+                ],
+                "xLabel": "ålder (år)",
+                "yLabel": "längd (cm)"
+              }
+            },
+            "Prickarna bildar nästan en rak linje."
+          ]
+        },
+        {
+          "lines": [
+            "Tänk om vi *drar ut* linjen ända till 40 års ålder (streckad linje)?",
+            {
+              "graph": {
+                "xRange": [0, 42],
+                "yRange": [0, 360],
+                "series": [
+                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
+                  { "type": "line", "color": "blue", "data": [[1,75],[12,150]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] }
+                ],
+                "legend": [
+                  { "color": "green", "label": "uppmätt längd" },
+                  { "type": "line", "color": "blue", "label": "trend" },
+                  { "type": "dashed", "color": "purple", "label": "utdragen linje" }
+                ],
+                "xLabel": "ålder (år)",
+                "yLabel": "längd (cm)"
+              }
+            },
+            "Vi la också in en *riktig* mätning vid 40 år (grön prick)."
+          ]
+        },
+        {
+          "lines": [
+            "Enligt den utdragna linjen skulle en 40-åring vara typ *3,4 meter* lång!",
+            {
+              "options": {
+                "id": "rimligt",
+                "choices": ["Ja tydligen", "Nej, det är orimligt"],
+                "correct": "Nej, det är orimligt",
+                "reveal": {
+                  "*": ["Så klart inte – den *uppmätta* 40-åringen är ju runt 1,8 meter."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "I verkligheten *planar* längden ut runt 1,8 meter.",
+            {
+              "graph": {
+                "xRange": [0, 42],
+                "yRange": [0, 360],
+                "xLabel": "ålder (år)",
+                "yLabel": "längd (cm)",
+                "series": [
+                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] },
+                  { "type": "line", "color": "pink", "smooth": true, "data": [[1,75],[3,96],[5,110],[8,128],[10,138],[12,150],[14,163],[16,172],[18,176],[22,178],[30,178],[40,178]] }
+                ],
+                "legend": [
+                  { "color": "green", "label": "uppmätt längd" },
+                  { "type": "dashed", "color": "purple", "label": "utdragen linje" },
+                  { "type": "line", "color": "pink", "label": "verklig snittlängd" }
+                ]
+              }
+            },
+            "Den rosa kurvan böjer av – kroppen slutar växa."
+          ]
+        },
+        {
+          "lines": [
+            "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
+            "Det gör vi ofta – och det kan vara både rimligt och *användbart*.",
+            "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "simpson",
+      "title": "Simpsons paradox",
+      "variables": {
+        "N": [80, 140],
+        "stad": ["Göteborg", "Örebro", "Luleå", "Helsingborg"]
+      },
+      "parts": [
+        {
+          "lines": [
+            "Vi frågade ungefär $N personer i $stad två saker:",
+            "hur gamla de är,",
+            "och hur mycket *pengar* de har *sparat*."
+          ]
+        },
+        {
+          "lines": [
+            "Först tittar vi bara på *kvinnorna* (röda).",
+            {
+              "graph": {
+                "xRange": [15, 65],
+                "yRange": [0, 100],
+                "series": [
+                  { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
+                  { "type": "line", "color": "red", "data": [[16,48],[40,80]] }
+                ],
+                "legend": [
+                  { "color": "red", "label": "kvinnor" }
+                ],
+                "xLabel": "ålder (år)",
+                "yLabel": "sparat (tkr)"
+              }
+            },
+            "Linjen pekar *uppåt*: äldre kvinnor har sparat mer."
+          ]
+        },
+        {
+          "lines": [
+            "Sen tittar vi bara på *männen* (blå).",
+            {
+              "graph": {
+                "xRange": [15, 65],
+                "yRange": [0, 100],
+                "series": [
+                  { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                  { "type": "line", "color": "blue", "data": [[36,16],[64,50]] }
+                ],
+                "legend": [
+                  { "color": "blue", "label": "män" }
+                ],
+                "xLabel": "ålder (år)",
+                "yLabel": "sparat (tkr)"
+              }
+            },
+            "Samma sak här – linjen pekar *uppåt*."
+          ]
+        },
+        {
+          "lines": [
+            "Båda grupperna visar alltså: högre ålder = mer sparat.",
+            "Om vi slår ihop *alla* i samma diagram...",
+            "...tror du att den gemensamma trenden pekar tvärtom (nedåt)?",
+            {
+              "options": {
+                "id": "trend",
+                "choices": ["Ja, nedåt", "Nej, uppåt"],
+                "correct": "Ja, nedåt",
+                "reveal": {
+                  "*": ["Låt oss slå ihop grupperna och se efter..."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Här är alla tillsammans. Den lila streckade linjen är den gemensamma trenden:",
+            {
+              "graph": {
+                "xRange": [15, 65],
+                "yRange": [0, 100],
+                "series": [
+                  { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
+                  { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[16,58],[64,33]] }
+                ],
+                "legend": [
+                  { "color": "red", "label": "kvinnor" },
+                  { "color": "blue", "label": "män" },
+                  { "type": "dashed", "color": "purple", "label": "alla tillsammans" }
+                ],
+                "xLabel": "ålder (år)",
+                "yLabel": "sparat (tkr)"
+              }
+            },
+            "Den pekar *nedåt* – tvärtemot varje grupp för sig!"
+          ]
+        },
+        {
+          "showIf": { "question": "trend", "equals": "Nej, uppåt" },
+          "lines": [
+            "Du gissade uppåt – helt logiskt, men här blev det faktiskt tvärtom!",
+            "Det är just det som gör det så lurigt."
+          ]
+        },
+        {
+          "lines": [
+            "Det här kallas *Simpsons paradox*.",
+            "En trend inuti varje grupp kan *vändas* när man slår ihop grupperna.",
+            "Därför är det klokt att fråga: har vi glömt att dela upp datan (t.ex. på kön eller ålder)?"
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "slump",
+      "title": "Ser du slumpen?",
+      "parts": [
+        {
+          "lines": [
+            "Vår hjärna är förvånansvärt dålig på *slump*.",
+            "Titta på prickarna nedan.",
+            {
+              "graph": {
+                "xRange": [0, 100],
+                "yRange": [0, 100],
+                "axes": false,
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[10,10],[30,10],[50,10],[70,10],[90,10],[10,30],[30,30],[50,30],[70,30],[90,30],[10,50],[30,50],[50,50],[70,50],[90,50],[10,70],[30,70],[50,70],[70,70],[90,70],[10,90],[30,90],[50,90],[70,90],[90,90]] }
+                ],
+                "xEnds": ["", ""],
+                "yEnds": ["", ""]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Ser det ut som *äkta* slump?",
+            {
+              "options": {
+                "id": "akta",
+                "choices": ["Ja, helt slumpmässigt", "Nej, för prydligt"],
+                "correct": "Nej, för prydligt",
+                "reveal": {
+                  "*": ["För prydligt! Äkta slump är *stökig* och bildar klumpar och luckor."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Så här ser riktig slump ut – med klumpar och tomma ytor:",
+            {
+              "graph": {
+                "xRange": [0, 100],
+                "yRange": [0, 100],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[8,14],[12,20],[16,9],[9,52],[14,60],[22,55],[19,80],[26,74],[41,12],[38,30],[47,26],[52,44],[44,63],[58,70],[63,58],[55,88],[70,84],[76,20],[82,34],[79,50],[88,66],[92,40],[85,88],[68,38],[33,86]] }
+                ],
+                "xEnds": ["", ""],
+                "yEnds": ["", ""]
+              }
+            },
+            "Klumparna *ser ut* som mönster, men är bara slump."
+          ]
+        },
+        {
+          "lines": [
+            "Om data ser *för perfekt* ut kan den till och med vara *påhittad*."
+          ]
+        },
+        {
+          "lines": [
+            "Det finns till och med ett dolt mönster i naturens siffror.",
+            "Ta massor av tal från verkligheten – folkmängder, elräkningar, flodlängder.",
+            "Vilken *första siffra* tror du är vanligast?",
+            {
+              "options": {
+                "id": "forstasiffra",
+                "choices": ["1", "5", "9", "Alla lika"],
+                "correct": "1",
+                "reveal": {
+                  "*": ["Ettan vinner stort. Så här ser det ut:"]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            {
+              "graph": {
+                "xRange": [0, 10],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "barWidth": 0.8, "data": [[1,30.1],[2,17.6],[3,12.5],[4,9.7],[5,7.9],[6,6.7],[7,5.8],[8,5.1],[9,4.6]] }
+                ],
+                "xLabel": "första siffra",
+                "yLabel": "andel (%)",
+                "xEnds": ["1", "9"],
+                "yEnds": ["0", ""]
+              }
+            },
+            "Ettan är först i nästan *30 %* av fallen, nian i bara *5 %*.",
+            "Det kallas *Benfords lag* – revisorer använder den för att *avslöja fusk* i bokföring!"
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "medicin",
+      "title": "Ett positivt provsvar",
+      "parts": [
+        {
+          "lines": [
+            "Tänk dig ett *test* för en ovanlig sjukdom.",
+            "Testet är *99 % träffsäkert*. Det låter ju jättebra."
+          ]
+        },
+        {
+          "lines": [
+            "Här är 100 personer. Bara *1* är faktiskt sjuk (röd).",
+            {
+              "graph": {
+                "iconGrid": {
+                  "cols": 10,
+                  "groups": [
+                    { "color": "red", "count": 1 },
+                    { "color": "grey", "count": 99 }
+                  ]
+                },
+                "legend": [
+                  { "color": "red", "label": "sjuk" },
+                  { "color": "grey", "label": "frisk" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Alla testar sig. Testet hittar den sjuka (röd)...",
+            "...men pekar av misstag också ut ungefär *1 frisk* person (orange).",
+            {
+              "graph": {
+                "iconGrid": {
+                  "cols": 10,
+                  "groups": [
+                    { "color": "red", "count": 1 },
+                    { "color": "orange", "count": 1 },
+                    { "color": "grey", "count": 98 }
+                  ]
+                },
+                "legend": [
+                  { "color": "red", "label": "sjuk (positiv)" },
+                  { "color": "orange", "label": "frisk men positiv" },
+                  { "color": "grey", "label": "frisk (negativ)" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Ditt svar är *positivt*. Hur säkert är det då att du är sjuk?",
+            {
+              "options": {
+                "id": "sakerhet",
+                "choices": ["99 %", "Ungefär 50 %", "Nästan 0 %"],
+                "correct": "Ungefär 50 %",
+                "reveal": {
+                  "*": ["Bara 2 personer testade positivt – och bara 1 av dem var sjuk."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Eftersom sjukdomen är *ovanlig* blir hälften av alla larm falska!",
+            "Hur vanlig en sjukdom är (*basfrekvensen*) spelar alltså jättestor roll.",
+            "Ett positivt svar betyder inte alltid att man är sjuk."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "opinion",
+      "title": "Kan vi lita på mätningen?",
+      "variables": {
+        "parti": ["Gröna partiet", "Blå partiet", "Röda partiet", "Gula partiet"]
+      },
+      "parts": [
+        {
+          "lines": [
+            "Före ett val görs många *opinionsmätningar*.",
+            "Vi följer $parti i två mätningar."
+          ]
+        },
+        {
+          "lines": [
+            "I mars fick partiet *30 %*. I april fick det *32 %*.",
+            {
+              "graph": {
+                "xRange": [0, 3],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30], [2, 32]] }
+                ],
+                "xLabel": "mars → april",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            },
+            "Det ser ut som att stödet har *ökat*, eller hur?"
+          ]
+        },
+        {
+          "lines": [
+            "Men kan vi vara *säkra* på att $parti verkligen har ökat?",
+            {
+              "options": {
+                "id": "okat",
+                "choices": ["Ja, det har ökat", "Vi kan inte vara säkra"],
+                "correct": "Vi kan inte vara säkra",
+                "reveal": {
+                  "*": ["Varje mätning har en *felmarginal* – låt oss rita ut den."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Strecken visar felmarginalen, ungefär *± 3 %*.",
+            {
+              "graph": {
+                "xRange": [0, 3],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30, 3], [2, 32, 3]] }
+                ],
+                "xLabel": "mars → april",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            },
+            "Titta – de två strecken *överlappar* varandra."
+          ]
+        },
+        {
+          "lines": [
+            "När felmarginalerna överlappar kan skillnaden bero på *slumpen*.",
+            "Ändringen är alltså inte säkert *statistiskt säkerställd*.",
+            "En liten förändring mellan två mätningar behöver inte vara en *riktig* förändring."
+          ]
+        }
+      ]
+    }
+  ],
+
+  "outro": {
+    "emoji": "🎉",
+    "title": "Bra jobbat!",
+    "text": "I september 2026 är det val i Sverige. Att förstå matematik och statistik hjälper dig att inte bli lurad – av diagram, rubriker eller opinionsmätningar. Vill du lära dig mer?",
+    "links": [
+      { "label": "Matteboken – lär dig mer matematik", "url": "https://www.matteboken.se" },
+      { "label": "Boken: En Summa av Ögonblick", "url": "https://www.esao.se" },
+      { "label": "Boken: Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se" }
+    ],
+    "restart": "Börja om"
+  }
+}
