@@ -56,7 +56,7 @@
               "choices": ["Ja", "Nej"],
               "correct": "Nej",
               "reveal": {
-                "*": ["Troligen inte – förmodligen ligger något annat bakom *båda*."]
+                "*": ["Troligen inte, förmodligen ligger något annat bakom *båda*."]
               }
             }
           }
@@ -73,8 +73,8 @@
       {
         "lines": [
           "Men vi kan inte vara *helt säkra* utifrån den här statistiken.",
-          "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt – men diagrammet *ensamt* kan inte avgöra det.",
-          "Att två saker följs åt kallas *korrelation* – och bevisar aldrig *orsak* på egen hand."
+          "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt, men diagrammet *ensamt* kan inte avgöra det.",
+          "Att två saker följs åt kallas *korrelation*, och bevisar aldrig *orsak* på egen hand."
         ]
       }
     ]
@@ -108,12 +108,12 @@
                 "xEnds": ["", ""]
               }
             },
-            "Några hundra följare var – ganska jämnt."
+            "Några hundra följare var, ganska jämnt."
           ]
         },
         {
           "lines": [
-            "Men så gick en av kompisarna *viral* – hen har *3000* följare!",
+            "Men så gick en av kompisarna *viral*, hen har *3000* följare!",
             {
               "graph": {
                 "xRange": [0, 10],
@@ -170,9 +170,9 @@
                 "choices": ["Medelvärdet", "Medianen"],
                 "correct": "Medianen",
                 "reveal": {
-                  "Medelvärdet": ["Men nästan ingen har så många följare – snittet är lurat av kändisen."],
+                  "Medelvärdet": ["Men nästan ingen har så många följare, snittet är lurat av kändisen."],
                   "Medianen": ["Precis! Medianen bryr sig inte om det extrema värdet."],
-                  "*": ["Medianen är *mittvärdet* – lika många över som under."]
+                  "*": ["Medianen är *mittvärdet*, lika många över som under."]
                 }
               }
             }
@@ -194,7 +194,7 @@
         {
           "lines": [
             "En kundtjänst mäter *svarstiden* på alla ärenden.",
-            "De flesta får svar snabbt – men några få får vänta *länge*.",
+            "De flesta får svar snabbt, men några få får vänta *länge*.",
             "Det bildar en *lång svans* långt till höger."
           ]
         },
@@ -227,7 +227,7 @@
           "lines": [
             "Chefen säger: *sänk svarstiderna!*",
             "Men det kan betyda olika saker. Ska vi rikta in oss på de *allra långsammaste* ärendena, eller *slumpvis valda*?",
-            "Om vi vill hjälpa dem som väntar *längst* – vilken strategi?",
+            "Om vi vill hjälpa dem som väntar *längst*, vilken strategi?",
             {
               "options": {
                 "id": "strategi",
@@ -242,7 +242,7 @@
         },
         {
           "lines": [
-            "*Strategi A:* vi fixar de *allra långsammaste* ärendena – svansen kapas.",
+            "*Strategi A:* vi fixar de *allra långsammaste* ärendena, svansen kapas.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -262,12 +262,12 @@
                 "yLabel": "antal ärenden"
               }
             },
-            "*P90* rasar från 18 till 12 – men *medianen* står kvar på 8."
+            "*P90* rasar från 18 till 12, men *medianen* står kvar på 8."
           ]
         },
         {
           "lines": [
-            "*Strategi B:* vi förbättrar *slumpvis valda* ärenden lite grann – bulken skiftar vänster.",
+            "*Strategi B:* vi förbättrar *slumpvis valda* ärenden lite grann, bulken skiftar vänster.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -287,12 +287,12 @@
                 "yLabel": "antal ärenden"
               }
             },
-            "Nu sjunker *medianen* till 6 – men *P90* står nästan kvar, svansen finns ju kvar."
+            "Nu sjunker *medianen* till 6, men *P90* står nästan kvar, svansen finns ju kvar."
           ]
         },
         {
           "lines": [
-            "Samma önskan – *sänk svarstiderna* – gav helt olika resultat.",
+            "Samma önskan, *sänk svarstiderna*, gav helt olika resultat.",
             "*Snitt*, *median* och *P90* svarar på olika frågor.",
             "Bryr du dig om de värst drabbade? Titta på *P90* och svansen. Om den typiska kunden? Titta på *medianen*."
           ]
@@ -359,7 +359,7 @@
                 "choices": ["Ja tydligen", "Nej, det är orimligt"],
                 "correct": "Nej, det är orimligt",
                 "reveal": {
-                  "*": ["Så klart inte – den *uppmätta* 40-åringen är ju runt 1,8 meter."]
+                  "*": ["Så klart inte, den *uppmätta* 40-åringen är ju runt 1,8 meter."]
                 }
               }
             }
@@ -386,13 +386,13 @@
                 ]
               }
             },
-            "Den rosa kurvan böjer av – kroppen slutar växa."
+            "Den rosa kurvan böjer av, kroppen slutar växa."
           ]
         },
         {
           "lines": [
             "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
-            "Det gör vi ofta – och det kan vara både rimligt och *användbart*.",
+            "Det gör vi ofta, och det kan vara både rimligt och *användbart*.",
             "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
           ]
         }
@@ -453,7 +453,7 @@
                 "yLabel": "sparat (tkr)"
               }
             },
-            "Samma sak här – linjen pekar *uppåt*."
+            "Samma sak här, linjen pekar *uppåt*."
           ]
         },
         {
@@ -494,13 +494,13 @@
                 "yLabel": "sparat (tkr)"
               }
             },
-            "Den pekar *nedåt* – tvärtemot varje grupp för sig!"
+            "Den pekar *nedåt*, tvärtemot varje grupp för sig!"
           ]
         },
         {
           "showIf": { "question": "trend", "equals": "Nej, uppåt" },
           "lines": [
-            "Du gissade uppåt – helt logiskt, men här blev det faktiskt tvärtom!",
+            "Du gissade uppåt, helt logiskt, men här blev det faktiskt tvärtom!",
             "Det är just det som gör det så lurigt."
           ]
         },
@@ -553,7 +553,7 @@
         },
         {
           "lines": [
-            "Så här ser riktig slump ut – med klumpar och tomma ytor:",
+            "Så här ser riktig slump ut, med klumpar och tomma ytor:",
             {
               "graph": {
                 "xRange": [0, 100],
@@ -576,7 +576,7 @@
         {
           "lines": [
             "Det finns till och med ett dolt mönster i naturens siffror.",
-            "Ta massor av tal från verkligheten – folkmängder, elräkningar, flodlängder.",
+            "Ta massor av tal från verkligheten, folkmängder, elräkningar, flodlängder.",
             "Vilken *första siffra* tror du är vanligast?",
             {
               "options": {
@@ -606,7 +606,7 @@
               }
             },
             "Ettan är först i nästan *30 %* av fallen, nian i bara *5 %*.",
-            "Det kallas *Benfords lag* – revisorer använder den för att *avslöja fusk* i bokföring!"
+            "Det kallas *Benfords lag*, revisorer använder den för att *avslöja fusk* i bokföring!"
           ]
         }
       ]
@@ -674,7 +674,7 @@
                 "choices": ["99 %", "Ungefär 50 %", "Nästan 0 %"],
                 "correct": "Ungefär 50 %",
                 "reveal": {
-                  "*": ["Bara 2 personer testade positivt – och bara 1 av dem var sjuk."]
+                  "*": ["Bara 2 personer testade positivt, och bara 1 av dem var sjuk."]
                 }
               }
             }
@@ -730,7 +730,7 @@
                 "choices": ["Ja, det har ökat", "Vi kan inte vara säkra"],
                 "correct": "Vi kan inte vara säkra",
                 "reveal": {
-                  "*": ["Varje mätning har en *felmarginal* – låt oss rita ut den."]
+                  "*": ["Varje mätning har en *felmarginal*, låt oss rita ut den."]
                 }
               }
             }
@@ -751,7 +751,7 @@
                 "xEnds": ["", ""]
               }
             },
-            "Titta – de två strecken *överlappar* varandra."
+            "Titta, de två strecken *överlappar* varandra."
           ]
         },
         {
@@ -770,7 +770,7 @@
     "title": "Bra jobbat!",
     "text": "Den 13 september 2026 är det val i Sverige. Att förstå matematik och statistik hjälper dig att inte bli lurad av diagram, rubriker eller opinionsmätningar. Vill du lära dig mer?",
     "links": [
-      { "label": "Matteboken – lär dig mer matematik", "url": "https://www.matteboken.se" },
+      { "label": "Matteboken, lär dig mer matematik", "url": "https://www.matteboken.se" },
       { "label": "En Summa av Ögonblick", "url": "https://www.esao.se" },
       { "label": "Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se" },
       { "label": "Information om valet", "url": "https://www.riksdagen.se/sv/aktuellt/valet-2026/" }
