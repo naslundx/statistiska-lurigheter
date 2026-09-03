@@ -26,6 +26,16 @@ python3 scripts/check-content.py
 Skriptet skriver ut varningar och fel och avslutar med kod `1` om något är fel
 (annars `0`), så det går även att använda i t.ex. en pre-commit-hook eller CI.
 
+## Felsökning / Debuggning
+
+För att hoppa direkt till en specifik del (för felsökning eller test), kan du lägga till `?page=N` i webbadressen, där `N` är numret på den "del" (part) du vill se (1-indexerat). Till exempel:
+
+```
+http://localhost:8000/?page=5
+```
+
+Detta hoppar över introt och laddar direkt den 5:e delen räknat över alla ämnen.
+
 ## Struktur
 
 ```

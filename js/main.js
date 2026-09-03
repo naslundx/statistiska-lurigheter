@@ -40,6 +40,33 @@ async function init() {
   state.topicVars = state.data.topics.map((t) => resolveVariables(t.variables));
 
   setupChrome();
+
+  const params = new URLSearchParams(window.location.search);
+  const pageStr = params.get("page");
+  if (pageStr) {
+    const pageNum = parseInt(pageStr, 10);
+    jumpToPage(pageNum);
+  } else {
+    renderIntro();
+  }
+}
+
+function jumpToPage(n) {
+  let count = 1;
+  for (let t = 0; t < state.data.topics.length; t++) {
+    const parts = state.data.topics[t].parts;
+    for (let p = 0; p < parts.length; p++) {
+      if (count === n) {
+        state.topicIndex = t;
+        state.partIndex = p;
+        state.history = [];
+        renderCurrent();
+        return;
+      }
+      count++;
+    }
+  }
+  // Om page inte hittas, fallback till intro
   renderIntro();
 }
 
@@ -225,7 +252,14 @@ function updateProgress() {
     total++;
     if (pi <= state.partIndex) done++;
   });
-  const pct = total ? Math.round((done / total) * 100) : 0;
+  
+  let pct = 0;
+  if (total > 1) {
+    pct = Math.round(((done - 1) / (total - 1)) * 100);
+  } else if (total === 1) {
+    pct = 100;
+  }
+  
   progressBar.style.width = `${pct}%`;
 }
 
