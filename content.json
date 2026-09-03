@@ -7,12 +7,79 @@
 
   "intro": {
     "title": "Statistiska lurigheter",
-    "subtitle": "Vår intuition räcker inte alltid – särskilt inte i valtider.",
-    "description": "Inför valet 2026 väller det in siffror, diagram och opinionsmätningar. Följ med på en kort, interaktiv resa – kan du hänga med utan att bli lurad?",
+    "subtitle": "Vår intuition räcker inte alltid",
+    "description": "Inför valet 2026 väller det mer än någonsin in siffror, diagram och opinionsmätningar. Kan du hänga med utan att bli lurad?",
     "start": "Sätt igång"
   },
 
   "topics": [
+  {
+    "id": "korrelation",
+    "title": "Glass och olyckor",
+    "parts": [
+      {
+        "lines": [
+          "På sommaren säljs det massor av *glass*.",
+          "På sommaren händer också fler *drunkningsolyckor*."
+        ]
+      },
+      {
+        "lines": [
+          "Vi ritar in dagarna i ett diagram: glassförsäljning åt höger, olyckor uppåt.",
+          {
+            "graph": {
+              "xRange": [0, 100],
+              "yRange": [0, 45],
+              "series": [
+                { "type": "points", "color": "blue", "data": [[15,7],[25,9],[30,8],[40,13],[48,15],[55,14],[62,19],[70,21],[80,24],[90,28]] },
+                { "type": "line", "color": "red", "data": [[12,5],[95,30]] }
+              ],
+              "legend": [
+                { "color": "blue", "label": "en dag" },
+                { "type": "line", "color": "red", "label": "trend" }
+              ],
+              "xLabel": "glassförsäljning →",
+              "yLabel": "olyckor →",
+              "xEnds": ["", ""],
+              "yEnds": ["", ""]
+            }
+          },
+          "Ju mer glass som säljs, desto fler olyckor. Prickarna följs åt uppåt."
+        ]
+      },
+      {
+        "lines": [
+          "Betyder det att *glassen orsakar* olyckorna?",
+          {
+            "options": {
+              "id": "orsak",
+              "choices": ["Ja", "Nej"],
+              "correct": "Nej",
+              "reveal": {
+                "*": ["Troligen inte – förmodligen ligger något annat bakom *båda*."]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "lines": [
+          "Troligtvis är det *värmen*.",
+          "När det är varmt äter vi mer glass...",
+          "...och fler badar, så fler olyckor händer.",
+          "Värmen skulle då vara en *bakomliggande orsak* till båda."
+        ]
+      },
+      {
+        "lines": [
+          "Men vi kan inte vara *helt säkra* utifrån den här statistiken.",
+          "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt – men diagrammet *ensamt* kan inte avgöra det.",
+          "Att två saker följs åt kallas *korrelation* – och bevisar aldrig *orsak* på egen hand."
+        ]
+      }
+    ]
+  },
+
     {
       "id": "medelvarde",
       "title": "Medelvärde eller median?",
@@ -228,73 +295,6 @@
             "Samma önskan – *sänk svarstiderna* – gav helt olika resultat.",
             "*Snitt*, *median* och *P90* svarar på olika frågor.",
             "Bryr du dig om de värst drabbade? Titta på *P90* och svansen. Om den typiska kunden? Titta på *medianen*."
-          ]
-        }
-      ]
-    },
-
-    {
-      "id": "korrelation",
-      "title": "Glass och olyckor",
-      "parts": [
-        {
-          "lines": [
-            "På sommaren säljs det massor av *glass*.",
-            "På sommaren händer också fler *drunkningsolyckor*."
-          ]
-        },
-        {
-          "lines": [
-            "Vi ritar in dagarna i ett diagram: glassförsäljning åt höger, olyckor uppåt.",
-            {
-              "graph": {
-                "xRange": [0, 100],
-                "yRange": [0, 45],
-                "series": [
-                  { "type": "points", "color": "blue", "data": [[15,7],[25,9],[30,8],[40,13],[48,15],[55,14],[62,19],[70,21],[80,24],[90,28]] },
-                  { "type": "line", "color": "red", "data": [[12,5],[95,30]] }
-                ],
-                "legend": [
-                  { "color": "blue", "label": "en dag" },
-                  { "type": "line", "color": "red", "label": "trend" }
-                ],
-                "xLabel": "glassförsäljning →",
-                "yLabel": "olyckor →",
-                "xEnds": ["", ""],
-                "yEnds": ["", ""]
-              }
-            },
-            "Ju mer glass som säljs, desto fler olyckor. Prickarna följs åt uppåt."
-          ]
-        },
-        {
-          "lines": [
-            "Betyder det att *glassen orsakar* olyckorna?",
-            {
-              "options": {
-                "id": "orsak",
-                "choices": ["Ja", "Nej"],
-                "correct": "Nej",
-                "reveal": {
-                  "*": ["Troligen inte – förmodligen ligger något annat bakom *båda*."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Troligtvis är det *värmen*.",
-            "När det är varmt äter vi mer glass...",
-            "...och fler badar, så fler olyckor händer.",
-            "Värmen skulle då vara en *bakomliggande orsak* till båda."
-          ]
-        },
-        {
-          "lines": [
-            "Men vi kan inte vara *helt säkra* utifrån den här statistiken.",
-            "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt – men diagrammet *ensamt* kan inte avgöra det.",
-            "Att två saker följs åt kallas *korrelation* – och bevisar aldrig *orsak* på egen hand."
           ]
         }
       ]
@@ -768,11 +768,12 @@
   "outro": {
     "emoji": "🎉",
     "title": "Bra jobbat!",
-    "text": "I september 2026 är det val i Sverige. Att förstå matematik och statistik hjälper dig att inte bli lurad – av diagram, rubriker eller opinionsmätningar. Vill du lära dig mer?",
+    "text": "Den 13 september 2026 är det val i Sverige. Att förstå matematik och statistik hjälper dig att inte bli lurad av diagram, rubriker eller opinionsmätningar. Vill du lära dig mer?",
     "links": [
       { "label": "Matteboken – lär dig mer matematik", "url": "https://www.matteboken.se" },
-      { "label": "Boken: En Summa av Ögonblick", "url": "https://www.esao.se" },
-      { "label": "Boken: Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se" }
+      { "label": "En Summa av Ögonblick", "url": "https://www.esao.se" },
+      { "label": "Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se" },
+      { "label": "Information om valet", "url": "https://www.riksdagen.se/sv/aktuellt/valet-2026/" }
     ],
     "restart": "Börja om"
   }
