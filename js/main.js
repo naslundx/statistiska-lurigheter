@@ -19,6 +19,7 @@ const state = {
   partIndex: 0,
   answers: {}, // key `${topicIndex}:${questionId}` -> value
   history: [], // stack of {topicIndex, partIndex} for the back button
+  renderId: 0, // used to abort ghost renders on rapid navigation
 };
 
 init();
@@ -197,12 +198,15 @@ function renderCurrent() {
 
   // Announce a new topic with a large title on its first part.
   // Skipped for the very first topic, so we get straight into it.
-  if (state.topicIndex > 0 && state.partIndex === firstVisiblePart(state.topicIndex)) {
+  const isNewTopic = state.topicIndex > 0 && state.partIndex === firstVisiblePart(state.topicIndex);
+  if (isNewTopic) {
     const heading = document.createElement("h2");
     heading.className = "topic-title line";
     heading.textContent = topic.title;
     stage.appendChild(heading);
   }
+
+  const currentRenderId = ++state.renderId;
 
   renderPart(stage, part, vars, {
     onAnswer: (id, value) => {
@@ -211,6 +215,8 @@ function renderCurrent() {
     onDone: goNext,
     onBack: goBack,
     canBack: state.history.length > 0,
+    isNewTopic: isNewTopic,
+    isAborted: () => state.renderId !== currentRenderId,
   });
 }
 

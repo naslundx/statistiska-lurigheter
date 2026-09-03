@@ -162,6 +162,14 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
+  /* Slower intro for the title specifically */
+  animation: title-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes title-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .hl {

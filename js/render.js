@@ -25,7 +25,15 @@ const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 export async function renderPart(stage, part, vars, ctx) {
   let hasOptions = false;
 
+  if (ctx.isNewTopic) {
+    // Wait longer for the topic title to be presented
+    // before throwing the first lines at the user.
+    await delay(1200);
+  }
+
   for (const line of part.lines) {
+    if (ctx.isAborted && ctx.isAborted()) return;
+
     if (line && typeof line === "object" && line.options) {
       hasOptions = true;
       await revealOptions(stage, line.options, vars, ctx);
@@ -35,6 +43,8 @@ export async function renderPart(stage, part, vars, ctx) {
       await delay(LINE_DELAY);
     }
   }
+
+  if (ctx.isAborted && ctx.isAborted()) return;
 
   // Only auto-show the "next" button when the part has no options.
   // (Option parts show it themselves once the user has answered.)
@@ -118,11 +128,13 @@ function revealOptions(stage, opts, vars, ctx) {
       ];
 
       for (const l of lines) {
+        if (ctx.isAborted && ctx.isAborted()) return;
         await delay(LINE_DELAY);
         appendLine(stage, l, vars);
       }
 
       await delay(LINE_DELAY);
+      if (ctx.isAborted && ctx.isAborted()) return;
       showNav(stage, ctx);
 
       resolve();
