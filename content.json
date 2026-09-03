@@ -20,12 +20,12 @@
       {
         "lines": [
           "På sommaren säljs det massor av *glass*.",
-          "På sommaren händer också fler *drunkningsolyckor*."
+          "På sommaren sker också fler *drunkningsolyckor*."
         ]
       },
       {
         "lines": [
-          "Vi ritar in dagarna i ett diagram: glassförsäljning åt höger, olyckor uppåt.",
+          "Vi ritar in dagarna i ett diagram.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -38,8 +38,8 @@
                 { "color": "blue", "label": "en dag" },
                 { "type": "line", "color": "red", "label": "trend" }
               ],
-              "xLabel": "glassförsäljning →",
-              "yLabel": "olyckor →",
+              "xLabel": "sålda glassar",
+              "yLabel": "olyckor",
               "xEnds": ["", ""],
               "yEnds": ["", ""]
             }
@@ -49,14 +49,14 @@
       },
       {
         "lines": [
-          "Betyder det att *glassen orsakar* olyckorna?",
+          "Betyder det att glassen *orsakar* olyckorna?",
           {
             "options": {
               "id": "orsak",
               "choices": ["Ja", "Nej"],
               "correct": "Nej",
               "reveal": {
-                "*": ["Troligen inte, förmodligen ligger något annat bakom *båda*."]
+                "*": ["Troligen inte. Förmodligen ligger något annat bakom båda."]
               }
             }
           }
@@ -67,14 +67,239 @@
           "Troligtvis är det *värmen*.",
           "När det är varmt äter vi mer glass...",
           "...och fler badar, så fler olyckor händer.",
-          "Värmen skulle då vara en *bakomliggande orsak* till båda."
+          "Värmen skulle då vara en bakomliggande orsak."
         ]
       },
       {
         "lines": [
-          "Men vi kan inte vara *helt säkra* utifrån den här statistiken.",
-          "Kanske är glassen rentav *förgiftad* och orsakar olyckor? Osannolikt, men diagrammet *ensamt* kan inte avgöra det.",
-          "Att två saker följs åt kallas *korrelation*, och bevisar aldrig *orsak* på egen hand."
+          "Men vi kan inte vara helt säkra.",
+          "Kanske är glassen förgiftad och orsakar olyckor? Osannolikt, men diagrammet kan inte avgöra det."
+        ]
+      },
+      {
+        "lines": [
+          "Att två saker följs åt kallas *korrelation*, och bevisar aldrig orsak på egen hand.",
+          "Orsakssamband kallas *kausalitet*.",
+          "Statistik är ett sätt att lista ut trolig kausalitet, men akta dig från att dra för stora slutsatser."
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": "extrapolering",
+    "title": "Extrapolering",
+    "parts": [
+      {
+        "lines": [
+          "Ett barn växer ganska jämnt varje år. Vi mäter längden från 1 till 12 år.",
+          {
+            "graph": {
+              "xRange": [0, 13],
+              "yRange": [0, 170],
+              "series": [
+                { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150]] },
+                { "type": "line", "color": "blue", "data": [[1,75],[12,150]] }
+              ],
+              "legend": [
+                { "color": "green", "label": "uppmätt längd" },
+                { "type": "line", "color": "blue", "label": "trend" }
+              ],
+              "xLabel": "ålder (år)",
+              "yLabel": "längd (cm)"
+            }
+          },
+          "Prickarna bildar nästan en rak linje."
+        ]
+      },
+      {
+        "lines": [
+          "Tänk om vi *drar ut* linjen ända till 40 års ålder (streckad linje)?",
+          {
+            "graph": {
+              "xRange": [0, 42],
+              "yRange": [0, 360],
+              "series": [
+                { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
+                { "type": "line", "color": "blue", "data": [[1,75],[12,150]] },
+                { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] }
+              ],
+              "legend": [
+                { "type": "line", "color": "blue", "label": "trend" },
+                { "type": "dashed", "color": "purple", "label": "utdragen linje" }
+              ],
+              "xLabel": "ålder (år)",
+              "yLabel": "längd (cm)"
+            }
+          }
+        ]
+      },
+      {
+        "lines": [
+          "Enligt den utdragna linjen skulle en 40-åring vara typ *3,4 meter* lång!",
+          {
+            "options": {
+              "id": "rimligt",
+              "choices": ["Ja tydligen", "Nej, det är orimligt"],
+              "correct": "Nej, det är orimligt",
+              "reveal": {
+                "*": ["Så klart inte!"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "lines": [
+          "I verkligheten planar längden ut. En genomsnittlig svensk är ungefär 173 cm lång.",
+          {
+            "graph": {
+              "xRange": [0, 42],
+              "yRange": [0, 360],
+              "xLabel": "ålder (år)",
+              "yLabel": "längd (cm)",
+              "series": [
+                { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
+                { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] },
+                { "type": "line", "color": "pink", "smooth": true, "data": [[1,75],[3,96],[5,110],[8,128],[10,138],[12,150],[14,163],[16,172],[18,176],[22,178],[30,178],[40,178]] }
+              ],
+              "legend": [
+                { "color": "green", "label": "uppmätt längd" },
+                { "type": "dashed", "color": "purple", "label": "utdragen linje" },
+                { "type": "line", "color": "pink", "label": "verklig snittlängd" }
+              ]
+            }
+          },
+          "Den rosa kurvan böjer av, kroppen slutar växa."
+        ]
+      },
+      {
+        "lines": [
+          "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
+          "Det kan vara både rimligt och användbart.",
+          "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
+        ]
+      },
+      {
+        "lines": [
+          "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
+          "Det kan vara både rimligt och användbart.",
+          "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "simpson",
+    "title": "Simpsons paradox",
+    "variables": {
+      "N": [80, 140],
+      "stad": ["Göteborg", "Örebro", "Luleå", "Helsingborg"]
+    },
+    "parts": [
+      {
+        "lines": [
+          "Vi frågade ungefär $N personer i $stad två saker:",
+          "hur gamla de är,",
+          "och hur mycket pengar de tjänar."
+        ]
+      },
+      {
+        "lines": [
+          "Först tittar vi bara på *kvinnorna* (röda).",
+          {
+            "graph": {
+              "xRange": [15, 65],
+              "yRange": [0, 100],
+              "series": [
+                { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
+                { "type": "line", "color": "red", "data": [[16,48],[40,80]] }
+              ],
+              "legend": [
+                { "color": "red", "label": "kvinnor" }
+              ],
+              "xLabel": "ålder (år)",
+              "yLabel": "sparat (tkr)"
+            }
+          },
+          "Linjen pekar *uppåt*: äldre kvinnor har sparat mer."
+        ]
+      },
+      {
+        "lines": [
+          "Sen tittar vi bara på *männen* (blå).",
+          {
+            "graph": {
+              "xRange": [15, 65],
+              "yRange": [0, 100],
+              "series": [
+                { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                { "type": "line", "color": "blue", "data": [[36,16],[64,50]] }
+              ],
+              "legend": [
+                { "color": "blue", "label": "män" }
+              ],
+              "xLabel": "ålder (år)",
+              "yLabel": "sparat (tkr)"
+            }
+          },
+          "Samma sak här, linjen pekar *uppåt*."
+        ]
+      },
+      {
+        "lines": [
+          "Båda grupperna visar alltså att äldre tjänar mer.",
+          "Om vi slår ihop *alla* i samma diagram...",
+          "...tror du att den gemensamma trenden måste visa samma sak?",
+          {
+            "options": {
+              "id": "trend",
+              "choices": ["Ja", "Nej"],
+              "correct": "Nej",
+              "reveal": {
+                "*": ["Låt oss slå ihop grupperna och se efter..."]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "lines": [
+          "Här är alla tillsammans. Den lila streckade linjen är den gemensamma trenden:",
+          {
+            "graph": {
+              "xRange": [15, 65],
+              "yRange": [0, 100],
+              "series": [
+                { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
+                { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                { "type": "line", "color": "purple", "style": "dashed", "data": [[16,58],[64,33]] }
+              ],
+              "legend": [
+                { "color": "red", "label": "kvinnor" },
+                { "color": "blue", "label": "män" },
+                { "type": "dashed", "color": "purple", "label": "alla tillsammans" }
+              ],
+              "xLabel": "ålder (år)",
+              "yLabel": "sparat (tkr)"
+            }
+          },
+          "Den pekar *nedåt*, tvärtemot varje grupp för sig!"
+        ]
+      },
+      {
+        "showIf": { "question": "trend", "equals": "Nej, uppåt" },
+        "lines": [
+          "Du gissade uppåt. Det känns rimligt! Men här blev det faktiskt tvärtom!",
+          "Det är just det som gör det så lurigt.",
+          "TODO förklara varför"
+        ]
+      },
+      {
+        "lines": [
+          "Det här kallas *Simpsons paradox*.",
+          "En trend inuti varje grupp kan vara tvärtom när man slår ihop grupperna.",
+          "TODO Därför..."
         ]
       }
     ]
@@ -195,7 +420,6 @@
           "lines": [
             "En kundtjänst mäter *svarstiden* på alla ärenden.",
             "De flesta får svar snabbt, men några få får vänta *länge*.",
-            "Det bildar en *lång svans* långt till höger."
           ]
         },
         {
@@ -300,219 +524,6 @@
       ]
     },
 
-    {
-      "id": "extrapolering",
-      "title": "Extrapolering",
-      "parts": [
-        {
-          "lines": [
-            "Ett barn växer ganska jämnt varje år. Vi mäter längden från 1 till 12 år.",
-            {
-              "graph": {
-                "xRange": [0, 13],
-                "yRange": [0, 170],
-                "series": [
-                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150]] },
-                  { "type": "line", "color": "blue", "data": [[1,75],[12,150]] }
-                ],
-                "legend": [
-                  { "color": "green", "label": "uppmätt längd" },
-                  { "type": "line", "color": "blue", "label": "trend" }
-                ],
-                "xLabel": "ålder (år)",
-                "yLabel": "längd (cm)"
-              }
-            },
-            "Prickarna bildar nästan en rak linje."
-          ]
-        },
-        {
-          "lines": [
-            "Tänk om vi *drar ut* linjen ända till 40 års ålder (streckad linje)?",
-            {
-              "graph": {
-                "xRange": [0, 42],
-                "yRange": [0, 360],
-                "series": [
-                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
-                  { "type": "line", "color": "blue", "data": [[1,75],[12,150]] },
-                  { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] }
-                ],
-                "legend": [
-                  { "color": "green", "label": "uppmätt längd" },
-                  { "type": "line", "color": "blue", "label": "trend" },
-                  { "type": "dashed", "color": "purple", "label": "utdragen linje" }
-                ],
-                "xLabel": "ålder (år)",
-                "yLabel": "längd (cm)"
-              }
-            },
-            "Vi la också in en *riktig* mätning vid 40 år (grön prick)."
-          ]
-        },
-        {
-          "lines": [
-            "Enligt den utdragna linjen skulle en 40-åring vara typ *3,4 meter* lång!",
-            {
-              "options": {
-                "id": "rimligt",
-                "choices": ["Ja tydligen", "Nej, det är orimligt"],
-                "correct": "Nej, det är orimligt",
-                "reveal": {
-                  "*": ["Så klart inte, den *uppmätta* 40-åringen är ju runt 1,8 meter."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "I verkligheten *planar* längden ut runt 1,8 meter.",
-            {
-              "graph": {
-                "xRange": [0, 42],
-                "yRange": [0, 360],
-                "xLabel": "ålder (år)",
-                "yLabel": "längd (cm)",
-                "series": [
-                  { "type": "points", "color": "green", "data": [[1,75],[2,87],[3,96],[4,103],[5,110],[6,116],[7,122],[8,128],[9,133],[10,138],[11,144],[12,150],[40,178]] },
-                  { "type": "line", "color": "purple", "style": "dashed", "data": [[12,150],[40,340]] },
-                  { "type": "line", "color": "pink", "smooth": true, "data": [[1,75],[3,96],[5,110],[8,128],[10,138],[12,150],[14,163],[16,172],[18,176],[22,178],[30,178],[40,178]] }
-                ],
-                "legend": [
-                  { "color": "green", "label": "uppmätt längd" },
-                  { "type": "dashed", "color": "purple", "label": "utdragen linje" },
-                  { "type": "line", "color": "pink", "label": "verklig snittlängd" }
-                ]
-              }
-            },
-            "Den rosa kurvan böjer av, kroppen slutar växa."
-          ]
-        },
-        {
-          "lines": [
-            "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
-            "Det gör vi ofta, och det kan vara både rimligt och *användbart*.",
-            "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
-          ]
-        }
-      ]
-    },
-
-    {
-      "id": "simpson",
-      "title": "Simpsons paradox",
-      "variables": {
-        "N": [80, 140],
-        "stad": ["Göteborg", "Örebro", "Luleå", "Helsingborg"]
-      },
-      "parts": [
-        {
-          "lines": [
-            "Vi frågade ungefär $N personer i $stad två saker:",
-            "hur gamla de är,",
-            "och hur mycket *pengar* de har *sparat*."
-          ]
-        },
-        {
-          "lines": [
-            "Först tittar vi bara på *kvinnorna* (röda).",
-            {
-              "graph": {
-                "xRange": [15, 65],
-                "yRange": [0, 100],
-                "series": [
-                  { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
-                  { "type": "line", "color": "red", "data": [[16,48],[40,80]] }
-                ],
-                "legend": [
-                  { "color": "red", "label": "kvinnor" }
-                ],
-                "xLabel": "ålder (år)",
-                "yLabel": "sparat (tkr)"
-              }
-            },
-            "Linjen pekar *uppåt*: äldre kvinnor har sparat mer."
-          ]
-        },
-        {
-          "lines": [
-            "Sen tittar vi bara på *männen* (blå).",
-            {
-              "graph": {
-                "xRange": [15, 65],
-                "yRange": [0, 100],
-                "series": [
-                  { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
-                  { "type": "line", "color": "blue", "data": [[36,16],[64,50]] }
-                ],
-                "legend": [
-                  { "color": "blue", "label": "män" }
-                ],
-                "xLabel": "ålder (år)",
-                "yLabel": "sparat (tkr)"
-              }
-            },
-            "Samma sak här, linjen pekar *uppåt*."
-          ]
-        },
-        {
-          "lines": [
-            "Båda grupperna visar alltså: högre ålder = mer sparat.",
-            "Om vi slår ihop *alla* i samma diagram...",
-            "...tror du att den gemensamma trenden pekar tvärtom (nedåt)?",
-            {
-              "options": {
-                "id": "trend",
-                "choices": ["Ja, nedåt", "Nej, uppåt"],
-                "correct": "Ja, nedåt",
-                "reveal": {
-                  "*": ["Låt oss slå ihop grupperna och se efter..."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Här är alla tillsammans. Den lila streckade linjen är den gemensamma trenden:",
-            {
-              "graph": {
-                "xRange": [15, 65],
-                "yRange": [0, 100],
-                "series": [
-                  { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80]] },
-                  { "type": "points", "color": "blue", "data": [[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
-                  { "type": "line", "color": "purple", "style": "dashed", "data": [[16,58],[64,33]] }
-                ],
-                "legend": [
-                  { "color": "red", "label": "kvinnor" },
-                  { "color": "blue", "label": "män" },
-                  { "type": "dashed", "color": "purple", "label": "alla tillsammans" }
-                ],
-                "xLabel": "ålder (år)",
-                "yLabel": "sparat (tkr)"
-              }
-            },
-            "Den pekar *nedåt*, tvärtemot varje grupp för sig!"
-          ]
-        },
-        {
-          "showIf": { "question": "trend", "equals": "Nej, uppåt" },
-          "lines": [
-            "Du gissade uppåt, helt logiskt, men här blev det faktiskt tvärtom!",
-            "Det är just det som gör det så lurigt."
-          ]
-        },
-        {
-          "lines": [
-            "Det här kallas *Simpsons paradox*.",
-            "En trend inuti varje grupp kan *vändas* när man slår ihop grupperna.",
-            "Därför är det klokt att fråga: har vi glömt att dela upp datan (t.ex. på kön eller ålder)?"
-          ]
-        }
-      ]
-    },
 
     {
       "id": "slump",
@@ -727,8 +738,8 @@
             {
               "options": {
                 "id": "okat",
-                "choices": ["Ja, det har ökat", "Vi kan inte vara säkra"],
-                "correct": "Vi kan inte vara säkra",
+                "choices": ["Ja, om siffran är högre", "Nej"],
+                "correct": "Nej",
                 "reveal": {
                   "*": ["Varje mätning har en *felmarginal*, låt oss rita ut den."]
                 }
