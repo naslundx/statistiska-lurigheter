@@ -80,6 +80,29 @@ function setupChrome() {
     state.history = [];
     renderIntro();
   });
+
+  // Global keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    const active = document.activeElement;
+    const isFocusOnInteractive = active && (active.tagName === "BUTTON" || active.tagName === "A");
+
+    if (e.key === "Enter" || e.key === " ") {
+      // If the user is already focused on a button or link, let the native click happen
+      if (isFocusOnInteractive) return;
+
+      const nextBtn = document.querySelector(".btn--next, .btn--start");
+      if (nextBtn && !nextBtn.hidden) {
+        e.preventDefault(); // Prevent spacebar from scrolling down
+        nextBtn.click();
+      }
+    } else if (e.key === "ArrowRight") {
+      const nextBtn = document.querySelector(".btn--next, .btn--start");
+      if (nextBtn && !nextBtn.hidden) nextBtn.click();
+    } else if (e.key === "ArrowLeft") {
+      const prevBtn = document.querySelector(".btn--prev, .topbar__back");
+      if (prevBtn && !prevBtn.hidden) prevBtn.click();
+    }
+  });
 }
 
 /* --------------------------------------------------------------- Screens */

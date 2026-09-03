@@ -67,7 +67,7 @@ function revealOptions(stage, opts, vars, ctx) {
     const wrap = document.createElement("div");
     wrap.className = "options line";
 
-    opts.choices.forEach((choice) => {
+    opts.choices.forEach((choice, idx) => {
       const value = typeof choice === "object" ? choice.value : choice;
       const label = typeof choice === "object" ? choice.label : choice;
 
@@ -82,6 +82,13 @@ function revealOptions(stage, opts, vars, ctx) {
     });
 
     stage.appendChild(wrap);
+
+    // Ensure focus lands on the first option so that TAB starts cycling right away
+    // instead of resetting to the top of the document.
+    const firstOption = wrap.querySelector(".option");
+    if (firstOption) {
+      firstOption.focus({ preventScroll: true });
+    }
 
     async function choose(value, btn) {
       if (wrap.classList.contains("answered")) return;
