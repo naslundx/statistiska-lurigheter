@@ -82,6 +82,12 @@
           "Orsakssamband kallas *kausalitet*.",
           "Statistik är ett sätt att lista ut trolig kausalitet, men akta dig från att dra för stora slutsatser."
         ]
+      },
+      {
+        "lines": [
+          "Ett klassiskt, verkligt exempel på tokig korrelation är sambandet mellan antalet filmer Nicolas Cage är med i ett visst år och antalet personer som drunknat i pooler i USA.",
+          "De följdes åt nästan exakt under många år, trots att filmerna (förhoppningsvis) inte orsakar drunkningsolyckor!"
+        ]
       }
     ]
   },
@@ -136,7 +142,7 @@
       },
       {
         "lines": [
-          "Enligt den utdragna linjen skulle en 40-åring vara typ *3,4 meter* lång!",
+          "Enligt den utdragna linjen skulle en 40-åring vara *3,4 meter* lång!",
           {
             "options": {
               "id": "rimligt",
@@ -182,9 +188,25 @@
       },
       {
         "lines": [
-          "Att förlänga en linje förbi mätområdet kallas *extrapolering*.",
-          "Det kan vara både rimligt och användbart.",
-          "Men med *fel antaganden* (som att barn växer i evighet) blir det snabbt vilseledande."
+          "Men extrapolering fungerar ibland! Tänk på *Moores lag*, som i decennier förutsade hur många transistorer som fick plats på ett datachip.",
+          {
+            "graph": {
+              "xRange": [1970, 2020],
+              "yRange": [0, 50000],
+              "xLabel": "årtal",
+              "yLabel": "transistorer (miljoner)",
+              "xEnds": ["1970", "2020"],
+              "series": [
+                { "type": "points", "color": "teal", "data": [[1971,0.002],[1978,0.029],[1982,0.134],[1989,1.18],[1993,3.1],[1997,7.5],[2000,42],[2004,125],[2008,731],[2012,2600],[2016,7200],[2020,50000]] },
+                { "type": "line", "color": "purple", "smooth": true, "data": [[1970,0.001],[1980,0.1],[1990,1],[2000,40],[2010,1000],[2020,50000]] }
+              ],
+              "legend": [
+                { "color": "teal", "label": "chip" },
+                { "type": "line", "color": "purple", "label": "exponentiell trend" }
+              ]
+            }
+          },
+          "Den är inte en rak linje, utan en *exponentiell* kurva. Antalet dubblerades ungefär vartannat år, och kurvan stack iväg brant uppåt. Rätt form gav rätt förutsägelse!"
         ]
       }
     ]
@@ -288,18 +310,24 @@
         ]
       },
       {
-        "showIf": { "question": "trend", "equals": "Nej, uppåt" },
+        "showIf": { "question": "trend", "equals": "Ja" },
         "lines": [
           "Du gissade uppåt. Det känns rimligt! Men här blev det faktiskt tvärtom!",
-          "Det är just det som gör det så lurigt.",
-          "TODO förklara varför"
+          "Det är just det som gör det så lurigt."
+        ]
+      },
+      {
+        "lines": [
+          "Varför pekar linjen nedåt? Eftersom männen i vår grupp generellt är äldre än kvinnorna, men har sparat mycket mindre pengar totalt sett.",
+          "När vi går från unga till gamla går vi samtidigt från högsparande kvinnor till lågsparande män, vilket skapar en falsk nedåtgående trend totalt sett."
         ]
       },
       {
         "lines": [
           "Det här kallas *Simpsons paradox*.",
-          "En trend inuti varje grupp kan vara tvärtom när man slår ihop grupperna.",
-          "TODO Därför..."
+          "En trend inuti varje grupp kan verka vara tvärtom när man slår ihop grupperna.",
+          "Ett verkligt exempel: 1973 anklagades UC Berkeley för att diskriminera kvinnor. Totalt sett antogs färre kvinnor än män, men per utbildning antogs en *högre* andel kvinnor!",
+          "Svaret? Kvinnorna sökte till svårare utbildningar där få antogs totalt, medan männen sökte till enklare."
         ]
       }
     ]
@@ -314,7 +342,7 @@
       "parts": [
         {
           "lines": [
-            "Åtta kompisar i $stad jämför hur många *följare* de har på sociala medier.",
+            "Åtta kompisar i $stad tävlar i hur många *pannkakor* de orkar äta på en sittning.",
             "Vi ritar in varje kompis som en prick."
           ]
         },
@@ -324,35 +352,35 @@
             {
               "graph": {
                 "xRange": [0, 10],
-                "yRange": [0, 700],
+                "yRange": [0, 50],
                 "series": [
-                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] }
+                  { "type": "points", "color": "blue", "data": [[1,2],[2,5],[3,3],[4,6],[5,3],[6,5],[7,4],[8,4]] }
                 ],
                 "xLabel": "kompisarna",
-                "yLabel": "följare",
+                "yLabel": "pannkakor",
                 "xEnds": ["", ""]
               }
             },
-            "Några hundra följare var, ganska jämnt."
+            "Några pannkakor var, ganska jämnt. Totalt 32 stycken."
           ]
         },
         {
           "lines": [
-            "Men så gick en av kompisarna *viral*, hen har *3000* följare!",
+            "Men så kommer en nionde kompis som är *tävlingsätare*, hen äter *40* stycken!",
             {
               "graph": {
                 "xRange": [0, 10],
-                "yRange": [0, 3200],
+                "yRange": [0, 50],
                 "series": [
-                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] },
-                  { "type": "points", "color": "orange", "data": [[9,3000]] }
+                  { "type": "points", "color": "blue", "data": [[1,2],[2,5],[3,3],[4,6],[5,3],[6,5],[7,4],[8,4]] },
+                  { "type": "points", "color": "orange", "data": [[9,40]] }
                 ],
                 "legend": [
                   { "color": "blue", "label": "kompisar" },
-                  { "color": "orange", "label": "kändisen" }
+                  { "color": "orange", "label": "tävlingsätaren" }
                 ],
                 "xLabel": "kompisarna",
-                "yLabel": "följare",
+                "yLabel": "pannkakor",
                 "xEnds": ["", ""]
               }
             },
@@ -365,25 +393,25 @@
             {
               "graph": {
                 "xRange": [0, 10],
-                "yRange": [0, 3200],
+                "yRange": [0, 50],
                 "series": [
-                  { "type": "points", "color": "blue", "data": [[1,220],[2,480],[3,310],[4,590],[5,260],[6,540],[7,350],[8,450]] },
-                  { "type": "points", "color": "orange", "data": [[9,3000]] },
-                  { "type": "line", "color": "purple", "style": "dashed", "data": [[0,911],[10,911]] },
-                  { "type": "line", "color": "green", "style": "dashed", "data": [[0,450],[10,450]] }
+                  { "type": "points", "color": "blue", "data": [[1,2],[2,5],[3,3],[4,6],[5,3],[6,5],[7,4],[8,4]] },
+                  { "type": "points", "color": "orange", "data": [[9,40]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[0,8],[10,8]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[0,4],[10,4]] }
                 ],
                 "legend": [
                   { "color": "blue", "label": "kompisar" },
-                  { "color": "orange", "label": "kändisen" },
-                  { "type": "dashed", "color": "purple", "label": "medelvärde (911)" },
-                  { "type": "dashed", "color": "green", "label": "median (450)" }
+                  { "color": "orange", "label": "tävlingsätaren" },
+                  { "type": "dashed", "color": "purple", "label": "medelvärde (8)" },
+                  { "type": "dashed", "color": "green", "label": "median (4)" }
                 ],
                 "xLabel": "kompisarna",
-                "yLabel": "följare",
+                "yLabel": "pannkakor",
                 "xEnds": ["", ""]
               }
             },
-            "*Medelvärdet* hamnar ovanför *alla* utom kändisen. *Medianen* ligger mitt i gänget."
+            "*Medelvärdet* (72 / 9 = 8) hamnar ovanför *alla* vanliga kompisar. *Medianen* ligger mitt i gänget."
           ]
         },
         {
@@ -395,7 +423,7 @@
                 "choices": ["Medelvärdet", "Medianen"],
                 "correct": "Medianen",
                 "reveal": {
-                  "Medelvärdet": ["Men nästan ingen har så många följare, snittet är lurat av kändisen."],
+                  "Medelvärdet": ["Men ingen vanlig kompis åt så många pannkakor, snittet är lurat av tävlingsätaren."],
                   "Medianen": ["Precis! Medianen bryr sig inte om det extrema värdet."],
                   "*": ["Medianen är *mittvärdet*, lika många över som under."]
                 }
@@ -418,13 +446,58 @@
       "parts": [
         {
           "lines": [
-            "En kundtjänst mäter *svarstiden* på alla ärenden.",
-            "De flesta får svar snabbt, men några få får vänta *länge*.",
+            "Varje minut räknas när man ringer ambulans.",
+            "De flesta får hjälp snabbt, men för vissa tar det *lång tid*."
           ]
         },
         {
           "lines": [
-            "Här är läget idag, med tre mått inritade:",
+            "Här är svarstiderna idag:",
+            {
+              "graph": {
+                "xRange": [0, 32],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "color": "blue", "barWidth": 1.7, "data": [[2,3],[4,10],[6,22],[8,28],[10,20],[12,12],[14,8],[16,5],[18,4],[20,3],[22,2],[24,2],[26,2],[28,1],[30,1]] }
+                ],
+                "xLabel": "svarstid (min)",
+                "yLabel": "antal larm"
+              }
+            },
+            "Bullen i mitten är de flesta larm. Svansen till höger är larmen där det tog riktigt lång tid."
+          ]
+        },
+        {
+          "lines": [
+            "Om vi kollar på den typiska utryckningen (*median*) tar den 8 minuter. *Snittet* är 10 minuter.",
+            {
+              "graph": {
+                "xRange": [0, 32],
+                "yRange": [0, 34],
+                "series": [
+                  { "type": "bars", "color": "blue", "barWidth": 1.7, "data": [[2,3],[4,10],[6,22],[8,28],[10,20],[12,12],[14,8],[16,5],[18,4],[20,3],[22,2],[24,2],[26,2],[28,1],[30,1]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[8,0],[8,34]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[10,0],[10,34]] }
+                ],
+                "legend": [
+                  { "type": "dashed", "color": "green", "label": "median (8 min)" },
+                  { "type": "dashed", "color": "purple", "label": "snitt (10 min)" }
+                ],
+                "xLabel": "svarstid (min)",
+                "yLabel": "antal larm"
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Men de som drabbas av längst väntetider bryr sig varken om median eller snitt.",
+            "Ett annat mått är *P90*, även kallat den 90:e percentilen."
+          ]
+        },
+        {
+          "lines": [
+            "P90 är den tid som *9 av 10* ambulanser klarar sig under.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -441,24 +514,22 @@
                   { "type": "dashed", "color": "red", "label": "P90 (18 min)" }
                 ],
                 "xLabel": "svarstid (min)",
-                "yLabel": "antal ärenden"
+                "yLabel": "antal larm"
               }
             },
-            "*Median* = mittvärdet, *snitt* = genomsnittet, *P90* = det 9 av 10 klarar sig under."
+            "P90 är här 18 minuter. Bara de *10 % värsta* larmen tar längre tid än så."
           ]
         },
         {
           "lines": [
-            "Chefen säger: *sänk svarstiderna!*",
-            "Men det kan betyda olika saker. Ska vi rikta in oss på de *allra långsammaste* ärendena, eller *slumpvis valda*?",
-            "Om vi vill hjälpa dem som väntar *längst*, vilken strategi?",
+            "Regionen vill sänka väntetiderna. Ska vi försöka få de allra långsammaste ambulanserna att bli snabbare (kapa svansen), eller göra de flesta lite snabbare (flytta hela bulken)?",
             {
               "options": {
                 "id": "strategi",
-                "choices": ["De allra långsammaste", "Slumpvis valda"],
-                "correct": "De allra långsammaste",
+                "choices": ["Kapa svansen", "Flytta bulken"],
+                "correct": "Kapa svansen",
                 "reveal": {
-                  "*": ["Just det. Men titta vad som händer med snitt, median och P90 i båda fallen."]
+                  "*": ["Båda sänker snittet! Men låt oss titta på skillnaden."]
                 }
               }
             }
@@ -466,7 +537,7 @@
         },
         {
           "lines": [
-            "*Strategi A:* vi fixar de *allra långsammaste* ärendena, svansen kapas.",
+            "*Strategi A:* Vi fixar flaskhalsar för de svåraste utryckningarna. Svansen kapas.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -483,15 +554,15 @@
                   { "type": "dashed", "color": "red", "label": "P90 (12 min)" }
                 ],
                 "xLabel": "svarstid (min)",
-                "yLabel": "antal ärenden"
+                "yLabel": "antal larm"
               }
             },
-            "*P90* rasar från 18 till 12, men *medianen* står kvar på 8."
+            "*P90* minskar rejält från 18 till 12, men *medianen* ligger kvar på 8."
           ]
         },
         {
           "lines": [
-            "*Strategi B:* vi förbättrar *slumpvis valda* ärenden lite grann, bulken skiftar vänster.",
+            "*Strategi B:* Vi köper in fler ambulanser i centrum, där de flesta bor. Bulken skiftar vänster.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -508,17 +579,16 @@
                   { "type": "dashed", "color": "red", "label": "P90 (16 min)" }
                 ],
                 "xLabel": "svarstid (min)",
-                "yLabel": "antal ärenden"
+                "yLabel": "antal larm"
               }
             },
-            "Nu sjunker *medianen* till 6, men *P90* står nästan kvar, svansen finns ju kvar."
+            "Nu sjunker medianen till 6, men de extremt långa utryckningarna finns kvar. P90 står nästan still."
           ]
         },
         {
           "lines": [
-            "Samma önskan, *sänk svarstiderna*, gav helt olika resultat.",
-            "*Snitt*, *median* och *P90* svarar på olika frågor.",
-            "Bryr du dig om de värst drabbade? Titta på *P90* och svansen. Om den typiska kunden? Titta på *medianen*."
+            "Båda sätten sänker snittet, men de löser olika problem.",
+            "P90 hjälper dig att minska risken för de *farligaste worst-case*-scenarierna, medan median mäter *vardagen*."
           ]
         }
       ]
@@ -531,8 +601,33 @@
       "parts": [
         {
           "lines": [
-            "Vår hjärna är förvånansvärt dålig på *slump*.",
-            "Titta på prickarna nedan.",
+            "Vår hjärna är förvånansvärt dålig på *slump*."
+          ]
+        },
+        {
+          "lines": [
+            "Om jag ber dig tänka på en helt slumpmässig siffra mellan 1 och 10, vad väljer folk oftast?",
+            {
+              "options": {
+                "id": "slumpsiffra",
+                "choices": ["3", "5", "2", "4", "8", "0"],
+                "correct": "3",
+                "reveal": {
+                  "*": ["När människor ska 'slumpa' väljer de allra flesta *3* eller *7*."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Varför 3 och 7? 1 och 10 känns som kanter. 5 är i mitten. Jämna tal (2, 4, 6, 8) känns inte tillräckligt 'slumpartade'.",
+            "Det lämnar i stort sett bara 3 och 7 (och ibland 9) som bra kandidater för slump i vår hjärna!"
+          ]
+        },
+        {
+          "lines": [
+            "Och det gäller även när vi tittar på bilder. Titta på prickarna nedan.",
             {
               "graph": {
                 "xRange": [0, 100],
@@ -576,12 +671,12 @@
                 "yEnds": ["", ""]
               }
             },
-            "Klumparna *ser ut* som mönster, men är bara slump."
+            "Klumparna ser ut som mönster, men är bara slump."
           ]
         },
         {
           "lines": [
-            "Om data ser *för perfekt* ut kan den till och med vara *påhittad*."
+            "Om data ser för perfekt ut kan den till och med vara *påhittad*."
           ]
         },
         {
@@ -617,7 +712,7 @@
               }
             },
             "Ettan är först i nästan *30 %* av fallen, nian i bara *5 %*.",
-            "Det kallas *Benfords lag*, revisorer använder den för att *avslöja fusk* i bokföring!"
+            "Det kallas *Benfords lag*, revisorer använder den för att avslöja fusk i bokföring!"
           ]
         }
       ]
@@ -629,13 +724,28 @@
       "parts": [
         {
           "lines": [
-            "Tänk dig ett *test* för en ovanlig sjukdom.",
-            "Testet är *99 % träffsäkert*. Det låter ju jättebra."
+            "Tänk dig ett test för en ovanlig sjukdom. Bara 1 av 100 personer har den.",
+            "Testet är *99 % träffsäkert*."
           ]
         },
         {
           "lines": [
-            "Här är 100 personer. Bara *1* är faktiskt sjuk (röd).",
+            "Du tar testet och får ett positivt svar. Hur stor är risken att du faktiskt är sjuk?",
+            {
+              "options": {
+                "id": "sakerhet",
+                "choices": ["Cirka 99 %", "Cirka 50 %", "Nästan 0 %"],
+                "correct": "Ungefär 50 %",
+                "reveal": {
+                  "*": ["Faktiskt bara 50 %! Låt oss titta på prickarna för att förstå varför..."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Här är 100 personer. Bara en är faktiskt sjuk (röd).",
             {
               "graph": {
                 "iconGrid": {
@@ -656,7 +766,7 @@
         {
           "lines": [
             "Alla testar sig. Testet hittar den sjuka (röd)...",
-            "...men pekar av misstag också ut ungefär *1 frisk* person (orange).",
+            "...men eftersom det är 99 % träffsäkert pekar det av misstag också ut ungefär 1 av de 99 friska (orange).",
             {
               "graph": {
                 "iconGrid": {
@@ -673,29 +783,15 @@
                   { "color": "grey", "label": "frisk (negativ)" }
                 ]
               }
-            }
+            },
+            "Av de 2 som testat positivt är alltså bara 1 sjuk!"
           ]
         },
         {
           "lines": [
-            "Ditt svar är *positivt*. Hur säkert är det då att du är sjuk?",
-            {
-              "options": {
-                "id": "sakerhet",
-                "choices": ["99 %", "Ungefär 50 %", "Nästan 0 %"],
-                "correct": "Ungefär 50 %",
-                "reveal": {
-                  "*": ["Bara 2 personer testade positivt, och bara 1 av dem var sjuk."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Eftersom sjukdomen är *ovanlig* blir hälften av alla larm falska!",
-            "Hur vanlig en sjukdom är (*basfrekvensen*) spelar alltså jättestor roll.",
-            "Ett positivt svar betyder inte alltid att man är sjuk."
+            "Eftersom sjukdomen är ovanlig blir hälften av alla larm falska!",
+            "Hur vanlig en sjukdom är (*basfrekvensen*) spelar jättestor roll.",
+            "Just därför är statistik avgörande i medicinsk forskning. Att screena hela befolkningar för extremt ovanliga sjukdomar kan skapa enorm onödig oro på grund av alla falska larm."
           ]
         }
       ]
@@ -768,8 +864,35 @@
         {
           "lines": [
             "När felmarginalerna överlappar kan skillnaden bero på *slumpen*.",
-            "Ändringen är alltså inte säkert *statistiskt säkerställd*.",
-            "En liten förändring mellan två mätningar behöver inte vara en *riktig* förändring."
+            "Varifrån kommer då felmarginalen? Man kan inte fråga alla väljare. När man bara frågar ett urval (t.ex. 1 000 personer) finns det alltid en osäkerhet i om de exakt speglar hela befolkningen."
+          ]
+        },
+        {
+          "lines": [
+            "Om man istället frågar *10 000* personer krymper strecken markant. Då kan även en liten ökning vara statistiskt säkerställd!",
+            {
+              "graph": {
+                "xRange": [0, 3],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30, 0.9], [2, 32, 0.9]] }
+                ],
+                "xLabel": "mars → april",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Felmarginalen skiljer sig också för olika partier i samma mätning.",
+            "Ett parti som får 30 % har *större felmarginal* (i procentenheter) än ett parti som får 4 %, eftersom det helt enkelt är svårare att träffa rätt när en stor grupp väljare kan gunga fram och tillbaka."
+          ]
+        },
+        {
+          "lines": [
+            "Sammanfattningsvis: Titta alltid efter felmarginalen. En liten förändring i procent behöver inte vara en *riktig* förändring i samhället!"
           ]
         }
       ]
