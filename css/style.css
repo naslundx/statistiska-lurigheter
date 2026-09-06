@@ -74,16 +74,50 @@ body {
   min-width: 0;
 }
 
+.topbar__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
 .topbar__topic {
   display: block;
   font-size: 0.86rem;
   font-weight: 600;
   color: var(--ink-soft);
-  margin-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.topbar__count {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
+}
+
+.topbar__skip {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: 2px 6px;
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 500;
+  opacity: 0.5;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+.topbar__skip:hover { opacity: 1; background: #f4f2ff; }
+.topbar__skip[hidden] { display: none; }
 
 .topbar__back,
 .topbar__home {
@@ -411,7 +445,7 @@ body {
 }
 
 .links a:hover { transform: translateY(-2px); }
-.links a::after { content: " →"; color: var(--c-purple); }
+/*.links a::after { content: " →"; color: var(--c-purple); }*/
 
 /* ------------------------------------------------------------------ Footer */
 

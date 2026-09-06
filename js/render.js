@@ -5,7 +5,7 @@
 import { renderText } from "./variables.js";
 import { createGraph } from "./graph.js";
 
-const LINE_DELAY = 550; // ms between lines appearing
+const LINE_DELAY = 750; // ms between lines appearing
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 

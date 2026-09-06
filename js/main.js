@@ -8,6 +8,8 @@ import { renderPart } from "./render.js";
 const stage = document.getElementById("stage");
 const topbar = document.getElementById("topbar");
 const topicLabel = document.getElementById("topicLabel");
+const topicCount = document.getElementById("topicCount");
+const skipBtn = document.getElementById("skipBtn");
 const progressBar = document.getElementById("progressBar");
 const backBtn = document.getElementById("backBtn");
 const homeBtn = document.getElementById("homeBtn");
@@ -53,6 +55,12 @@ async function init() {
 }
 
 function jumpToPage(n) {
+  // Page below the first item -> intro; above the last item -> outro.
+  if (!Number.isFinite(n) || n < 1) {
+    renderIntro();
+    return;
+  }
+
   let count = 1;
   for (let t = 0; t < state.data.topics.length; t++) {
     const parts = state.data.topics[t].parts;
@@ -67,8 +75,8 @@ function jumpToPage(n) {
       count++;
     }
   }
-  // Om page inte hittas, fallback till intro
-  renderIntro();
+  // n is larger than the number of content items -> outro.
+  renderOutro();
 }
 
 function setupChrome() {
@@ -77,6 +85,7 @@ function setupChrome() {
   if (site.linkedin) link.href = site.linkedin;
 
   backBtn.addEventListener("click", goBack);
+  skipBtn.addEventListener("click", skipTopic);
   homeBtn.addEventListener("click", () => {
     state.history = [];
     renderIntro();
@@ -110,6 +119,7 @@ function setupChrome() {
 
 function renderIntro() {
   topbar.hidden = true;
+  clearPageUrl();
   const intro = state.data.intro || {};
   stage.innerHTML = "";
 
@@ -140,6 +150,7 @@ function startJourney() {
 
 function renderOutro() {
   topbar.hidden = true;
+  clearPageUrl();
   const outro = state.data.outro || {};
   stage.innerHTML = "";
 
@@ -190,8 +201,11 @@ function renderCurrent() {
 
   topbar.hidden = false;
   topicLabel.textContent = topic.title;
+  topicCount.textContent = `(${state.topicIndex + 1}/${state.data.topics.length})`;
+  skipBtn.hidden = state.topicIndex >= state.data.topics.length - 1;
   backBtn.hidden = state.history.length === 0;
   updateProgress();
+  updatePageUrl();
 
   stage.innerHTML = "";
   window.scrollTo({ top: 0 });
@@ -245,6 +259,18 @@ function goNext() {
   renderOutro();
 }
 
+function skipTopic() {
+  const nextTopic = state.topicIndex + 1;
+  if (nextTopic >= state.data.topics.length) {
+    renderOutro();
+    return;
+  }
+  state.history.push({ topicIndex: state.topicIndex, partIndex: state.partIndex });
+  state.topicIndex = nextTopic;
+  state.partIndex = firstVisiblePart(nextTopic);
+  renderCurrent();
+}
+
 function goBack() {
   const prev = state.history.pop();
   if (!prev) {
@@ -271,6 +297,28 @@ function firstVisiblePart(topicIndex) {
   return 0;
 }
 
+/** The 1-indexed global part number (matches the `?page=N` argument). */
+function currentPageNumber() {
+  let count = 1;
+  for (let t = 0; t < state.topicIndex; t++) {
+    count += state.data.topics[t].parts.length;
+  }
+  return count + state.partIndex;
+}
+
+function updatePageUrl() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("page", String(currentPageNumber()));
+  window.history.replaceState(null, "", url);
+}
+
+function clearPageUrl() {
+  const url = new URL(window.location.href);
+  if (!url.searchParams.has("page")) return;
+  url.searchParams.delete("page");
+  window.history.replaceState(null, "", url);
+}
+
 function updateProgress() {
   // Progress across the parts of the CURRENT topic only (resets each topic).
   const parts = state.data.topics[state.topicIndex].parts;
@@ -281,14 +329,14 @@ function updateProgress() {
     total++;
     if (pi <= state.partIndex) done++;
   });
-  
+
   let pct = 0;
   if (total > 1) {
     pct = Math.round(((done - 1) / (total - 1)) * 100);
   } else if (total === 1) {
     pct = 100;
   }
-  
+
   progressBar.style.width = `${pct}%`;
 }
 

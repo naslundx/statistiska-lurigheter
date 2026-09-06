@@ -19,7 +19,11 @@
   <header class="topbar" id="topbar" hidden>
     <button class="topbar__back" id="backBtn" type="button" aria-label="Tillbaka">←</button>
     <div class="topbar__info">
-      <span class="topbar__topic" id="topicLabel"></span>
+      <div class="topbar__meta">
+        <span class="topbar__topic" id="topicLabel"></span>
+        <span class="topbar__count" id="topicCount" aria-label="Ämne"></span>
+        <button class="topbar__skip" id="skipBtn" type="button">Hoppa till nästa ämne ›</button>
+      </div>
       <div class="progress" aria-hidden="true">
         <div class="progress__bar" id="progressBar"></div>
       </div>
@@ -30,11 +34,12 @@
   <main class="stage" id="stage" aria-live="polite"></main>
 
   <footer class="footer">
-    <span>Gjord av <strong>Marcus Näslund</strong></span>
+    <span>Gjord av
+    <a id="linkedinLink" href="#" target="_blank" rel="noopener noreferrer"><strong>Marcus Näslund</strong></a></span>
     <span class="footer__sep" aria-hidden="true">•</span>
-    <a id="linkedinLink" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.esao.se" target="_blank" rel="noopener noreferrer">En Summa av Ögonblick</a>
     <span class="footer__sep" aria-hidden="true">•</span>
-    <a href="https://www.esao.se" target="_blank" rel="noopener noreferrer">Boken: En Summa av Ögonblick</a>
+    <a href="https://www.esao.se" target="_blank" rel="noopener noreferrer">Verklighetens Kvadratrötter</a>
   </footer>
 
   <script type="module" src="js/main.js"></script>

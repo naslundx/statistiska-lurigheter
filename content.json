@@ -25,8 +25,7 @@
       },
       {
         "lines": [
-          "Vi ritar in dagarna i ett diagram, en prick per dag.",
-          "En riktigt varm dag säljs det *massor* av glass, och tyvärr sker det också *många* olyckor.",
+          "En riktigt varm dag säljs det massor av glass och tyvärr sker det också många olyckor.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -44,7 +43,7 @@
       },
       {
         "lines": [
-          "En sval dag säljs det *lite* glass, och då sker det också *få* olyckor.",
+          "En sval dag säljs det lite glass, och då sker det också få olyckor.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -76,12 +75,12 @@
               "yEnds": ["", ""]
             }
           },
-          "Prickarna följer varandra snyggt nedifrån och upp."
+          "Prickarna följer varandra snyggt."
         ]
       },
       {
         "lines": [
-          "Vi drar en linje genom prickarna, en *trend*.",
+          "Vi drar en linje genom prickarna, en *trendlinje*.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -112,7 +111,10 @@
               "choices": ["Ja", "Nej"],
               "correct": "Nej",
               "reveal": {
-                "*": ["Troligen inte. Förmodligen ligger något annat bakom båda."]
+                "*": [
+                  "Troligen inte. Förmodligen ligger något annat bakom båda.",
+                  "Förmodligen är det *värmen*."
+                ]
               }
             }
           }
@@ -120,7 +122,6 @@
       },
       {
         "lines": [
-          "Troligtvis är det *värmen*.",
           "När det är varmt äter vi mer glass...",
           "...och fler badar, så fler olyckor händer.",
           "Värmen skulle då vara en bakomliggande orsak."
@@ -129,7 +130,8 @@
       {
         "lines": [
           "Men vi kan inte vara helt säkra.",
-          "Kanske är glassen förgiftad och orsakar olyckor? Osannolikt, men diagrammet kan inte avgöra det."
+          "Kanske är glassen förgiftad och orsakar olyckor? Osannolikt, men diagrammet kan inte avgöra det.",
+          "(Eller vill alla köpa en tröstglass efter sina olyckor?)"
         ]
       },
       {
@@ -166,7 +168,7 @@
               "yLabel": "längd (cm)"
             }
           },
-          "Prickarna bildar nästan en rak linje uppför."
+          "Prickarna bildar nästan en rak linje."
         ]
       },
       {
