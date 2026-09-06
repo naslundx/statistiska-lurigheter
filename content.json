@@ -43,7 +43,7 @@
       },
       {
         "lines": [
-          "En sval dag säljs det lite glass, och då sker det också få olyckor.",
+          "En sval dag säljs det lite glass, och det få olyckor inträffar.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -61,7 +61,7 @@
       },
       {
         "lines": [
-          "Vi fyller på med alla andra dagar under sommaren.",
+          "Vi fyller på diagrammet med övriga sommardagar.",
           {
             "graph": {
               "xRange": [0, 100],
@@ -74,12 +74,12 @@
               "xEnds": ["", ""],
               "yEnds": ["", ""]
             }
-          },
-          "Prickarna följer varandra snyggt."
+          }
         ]
       },
       {
         "lines": [
+          "Prickarna följer varandra nära.",
           "Vi drar en linje genom prickarna, en *trendlinje*.",
           {
             "graph": {
@@ -99,7 +99,7 @@
               "yEnds": ["", ""]
             }
           },
-          "Ju mer glass som säljs, desto fler olyckor."
+          "Linjen pekar stadigt uppåt: Ju mer glass som säljs, desto fler olyckor."
         ]
       },
       {
@@ -112,8 +112,7 @@
               "correct": "Nej",
               "reveal": {
                 "*": [
-                  "Troligen inte. Förmodligen ligger något annat bakom båda.",
-                  "Förmodligen är det *värmen*."
+                  "Troligen inte. Något annat ligger bakom båda effekter."
                 ]
               }
             }
@@ -122,23 +121,24 @@
       },
       {
         "lines": [
-          "När det är varmt äter vi mer glass...",
-          "...och fler badar, så fler olyckor händer.",
-          "Värmen skulle då vara en bakomliggande orsak."
+          "När det är varmt äter vi mer glass.",
+          "När det är varmt badar fler, så fler olyckor händer.",
+          "*Värmen* skulle då vara en bakomliggande orsak."
         ]
       },
       {
         "lines": [
           "Men vi kan inte vara helt säkra.",
-          "Kanske är glassen förgiftad och orsakar olyckor? Osannolikt, men diagrammet kan inte avgöra det.",
-          "(Eller vill alla köpa en tröstglass efter sina olyckor?)"
+          "Kanske är glassen förgiftad och orsakar olyckor?",
+          "Eller vill alla köpa en tröstglass efter sina olyckor?",
+          "Osannolikt, men diagrammet kan inte avgöra det."
         ]
       },
       {
         "lines": [
           "Att två saker följs åt kallas *korrelation*, och bevisar aldrig orsak på egen hand.",
-          "Orsakssamband kallas *kausalitet*.",
-          "Statistik är ett sätt att lista ut trolig kausalitet, men akta dig från att dra för stora slutsatser."
+          "Orsakssamband kallas också för *kausalitet*.",
+          "Statistik är ett sätt att hitta samband, men akta dig från att dra för stora slutsatser."
         ]
       }
     ]
@@ -150,12 +150,12 @@
     "parts": [
       {
         "lines": [
-          "En *nyfödd* bebis är ungefär 50 cm lång och växer snabbt, cirka *en centimeter i veckan*.",
+          "En nyfödd bebis är ungefär 50 cm lång och växer snabbt, cirka *en centimeter i veckan*.",
           "Vi mäter längden under de första veckorna.",
           {
             "graph": {
               "xRange": [0, 14],
-              "yRange": [0, 70],
+              "yRange": [30, 70],
               "series": [
                 { "type": "points", "color": "green", "data": [[0,50],[2,52],[4,54],[6,56],[8,58],[10,60],[12,62]] },
                 { "type": "line", "color": "blue", "data": [[0,50],[12,62]] }
@@ -167,13 +167,13 @@
               "xLabel": "ålder (veckor)",
               "yLabel": "längd (cm)"
             }
-          },
-          "Prickarna bildar nästan en rak linje."
+          }
         ]
       },
       {
         "lines": [
           "Tänk om vi *drar ut* linjen ända tills barnet fyller 10 år (streckad linje)?",
+          TODO add a point that shows the extrapolated person at age 10
           {
             "graph": {
               "xRange": [0, 540],
@@ -191,19 +191,20 @@
               "yLabel": "längd (cm)",
               "xEnds": ["födsel", "10 år"]
             }
-          }
+          },
+          "Enligt den utdragna linjen skulle en 10-åring vara *5,5 meter* lång!"
         ]
       },
       {
         "lines": [
-          "Enligt den utdragna linjen skulle en 10-åring vara *5,5 meter* lång!",
+          "Stämmer det att 10-åringen rimligen blir 5,5 meter lång?"
           {
             "options": {
               "id": "rimligt",
               "choices": ["Ja tydligen", "Nej, det är orimligt"],
               "correct": "Nej, det är orimligt",
               "reveal": {
-                "*": ["Så klart inte! En 10-åring är snarare runt 1,4 meter."]
+                "*": ["Så klart inte! Ingen människa är så lång."]
               }
             }
           }
@@ -211,18 +212,18 @@
       },
       {
         "lines": [
-          "I verkligheten *saktar* växandet in. En 10-åring är ungefär 140 cm lång.",
+          "I verkligheten saktar växandet in. En 10-åring är ungefär 140 cm lång.",
           {
             "graph": {
               "xRange": [0, 540],
-              "yRange": [0, 600],
+              "yRange": [20, 550],
               "xLabel": "ålder",
               "yLabel": "längd (cm)",
               "xEnds": ["födsel", "10 år"],
               "series": [
                 { "type": "points", "color": "green", "data": [[0,50],[2,52],[4,54],[6,56],[8,58],[10,60],[12,62]] },
                 { "type": "line", "color": "purple", "style": "dashed", "data": [[12,62],[520,550]] },
-                { "type": "line", "color": "pink", "smooth": true, "data": [[0,50],[26,66],[52,75],[104,88],[208,108],[312,124],[416,133],[520,140]] }
+                { "type": "line", "color": "pink", "smooth": true, "data": [[0,50],[26,66],[52,75],[104,88],[208,108],[312,124],[416,137],[520,150]] }
               ],
               "legend": [
                 { "color": "green", "label": "uppmätt längd" },
@@ -231,7 +232,7 @@
               ]
             }
           },
-          "Den rosa kurvan böjer snabbt av, tillväxten avtar."
+          "Den rosa kurvan böjer av, tillväxten avtar."
         ]
       },
       {
@@ -243,6 +244,7 @@
       },
       {
         "lines": [
+          TODO Change this followup example to a savings account. Money increases thanks to interest. Show a linear increase. Does this extrapolation work? Answer: No - because it is exponential! Even if the assumption is correct, not everything is *linear*. Important!
           "Men extrapolering kan vara användbart! Tänk på *Moores lag*, som i decennier förutsade hur många transistorer som fick plats på ett datachip.",
           {
             "graph": {
@@ -274,14 +276,17 @@
       "stad": ["Göteborg", "Örebro", "Luleå", "Helsingborg"]
     },
     "parts": [
+      TODO fix so it always refers to savings, not salary
       {
         "lines": [
           "Vi frågade ungefär $N personer i $stad två saker:",
-          "hur gamla de är,",
-          "och hur mycket pengar de tjänar."
+          "- Hur gamla de är, och",
+          "- Hur mycket pengar de tjänar",
+          "(All data här är påhittad)"
         ]
       },
       {
+        TODO add a few more points outside the trend line in each group
         "lines": [
           "Först tittar vi bara på *kvinnorna* (röda).",
           {
@@ -348,20 +353,18 @@
               "xRange": [15, 65],
               "yRange": [0, 100],
               "series": [
-                { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80],[48,90]] },
-                { "type": "points", "color": "blue", "data": [[28,10],[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                { "type": "points", "color": "purple", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80],[48,90],[28,10],[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
                 { "type": "line", "color": "purple", "style": "dashed", "data": [[16,60],[64,32]] }
               ],
               "legend": [
-                { "color": "red", "label": "kvinnor" },
-                { "color": "blue", "label": "män" },
-                { "type": "dashed", "color": "purple", "label": "alla tillsammans" }
+                { "color": "purple", "label": "människor" },
+                { "type": "dashed", "color": "purple", "label": "trend" }
               ],
               "xLabel": "ålder (år)",
               "yLabel": "sparat (tkr)"
             }
           },
-          "Den pekar *nedåt*, tvärtemot varje grupp för sig!"
+          "Människor närmare pensionen tjänar överlag mindre än människor närmare 15."
         ]
       },
       {
@@ -373,17 +376,18 @@
       },
       {
         "lines": [
-          "Varför pekar linjen nedåt? Eftersom männen i vår grupp generellt är äldre än kvinnorna, men har sparat mycket mindre pengar totalt sett.",
-          "När vi går från unga till gamla går vi samtidigt från högsparande kvinnor till lågsparande män, vilket skapar en falsk nedåtgående trend totalt sett."
+          "Varför pekar linjen nedåt? Eftersom männen vi frågat generellt är äldre än kvinnorna och har sparat mindre pengar.",
+          "När vi går från alla unga till alla gamla går vi samtidigt från högsparande kvinnor till lågsparande män."
         ]
       },
       {
         "lines": [
-          "Det här kallas *Simpsons paradox*.",
-          "En trend inuti varje grupp kan verka vara tvärtom när man slår ihop grupperna."
+          "Trenden totalt är nedåtgående, trots att den är uppåtgående för män respektive kvinnor.",
+          "Det här kallas *Simpsons paradox*."
           ]
       },
       {
+        TODO skip the real example and explain that we need to think about how data is divided, which groups are interesting? cities vs rural areas might say completely opposite things.
         "lines": [
           "Ett verkligt exempel: 1973 anklagades UC Berkeley för att diskriminera kvinnor. Totalt sett antogs färre kvinnor än män, men per utbildning antogs en *högre* andel kvinnor!",
           "Kvinnorna sökte till svårare utbildningar där få antogs totalt, medan männen sökte till enklare."
@@ -420,12 +424,13 @@
                 "xEnds": ["", ""]
               }
             },
+            TODO in order to talk about average salary, we can talk about average or median. draw both here first. Adapt the rest of the topic.
             "Ganska jämna löner, runt 30 000 kr i månaden."
           ]
         },
         {
           "lines": [
-            "Men så anställs en nionde person: den nya *VD:n*, som tjänar *150 000 kr* i månaden!",
+            "Den nya *VD:n* tjänar *150 000 kr* i månaden.",
             {
               "graph": {
                 "xRange": [0, 10],
@@ -443,7 +448,7 @@
                 "xEnds": ["", ""]
               }
             },
-            "Den orangea pricken drar iväg hela skalan."
+            "Hen förskjuter ett av måtten."
           ]
         },
         {
@@ -470,7 +475,7 @@
                 "xEnds": ["", ""]
               }
             },
-            "*Medelvärdet* (390 / 9 ≈ 43 tkr) hamnar ovanför *alla* vanliga löner. *Medianen* ligger mitt i gänget, 30 tkr."
+            "*Medelvärdet* (390 / 9 ≈ 43 tkr) hamnar ovanför alla vanliga löner. *Medianen* ligger mitt i gänget, 30 000 kr."
           ]
         },
         {
@@ -493,7 +498,13 @@
         {
           "lines": [
             "*Medelvärdet* dras iväg av extrema värden. *Medianen* står emot.",
-            "Just därför redovisas ofta *medianlönen*: några få höginkomsttagare drar upp *snittlönen*, medan medianen beskriver de flesta bättre."
+            "Just därför redovisas ofta *medianlönen*: eftersom bara några få höginkomsttagare drar upp snittlönen till missvisande värden."
+          ]
+        },
+        {
+          "lines": [
+            "Det finns (tyvärr) inte ett enda bra värde som sammanfattar statistik. Var på din vakt när någon försöker hävda det!",
+            "Och det finns fler än medelvärde och median att fundera på..."
           ]
         }
       ]
@@ -528,7 +539,7 @@
         },
         {
           "lines": [
-            "Om vi tittar på den *typiska* utryckningen — *medianen* — tar den 8 minuter.",
+            "Om vi tittar på *medianen*, är den 8 minuter.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -567,7 +578,7 @@
                 "yLabel": "antal larm"
               }
             },
-            "Den långa svansen till höger drar upp snittet — det är känsligare för de långsamma larmen än medianen."
+            "Precis som med löner drar vissa långsamma svarstider upp snittet."
           ]
         },
         {
@@ -579,6 +590,7 @@
         {
           "lines": [
             "P90 är den tid som *9 av 10* ambulanser klarar sig under.",
+            "Eller: De *10 % värsta* larmen tar längre tid än så."
             {
               "graph": {
                 "xRange": [0, 32],
@@ -596,19 +608,19 @@
                 "yLabel": "antal larm"
               }
             },
-            "P90 är här 18 minuter. Bara de *10 % värsta* larmen tar längre tid än så."
+            "P90 är här 18 minuter."
           ]
         },
         {
           "lines": [
-            "Regionen vill sänka väntetiderna. Ska vi försöka få de allra långsammaste ambulanserna att bli snabbare (kapa svansen), eller göra de flesta lite snabbare (flytta hela bulken)?",
+            "Regionen vill sänka väntetiderna. Vilken strategi är bäst? A: Snabba upp de långsammaste utryckningarna, eller B: göra de flesta lite snabbare?",
             {
               "options": {
                 "id": "strategi",
-                "choices": ["Kapa svansen", "Flytta bulken"],
-                "correct": "Kapa svansen",
+                "choices": ["Strategi A", "Strategi B", "Går inte att säga"],
+                "correct": "Går inte att säga",
                 "reveal": {
-                  "*": ["Båda sänker snittet! Men låt oss titta på skillnaden."]
+                  "*": ["Båda strategier är bra, på olika sätt. Låt oss titta på skillnaden."]
                 }
               }
             }
@@ -666,17 +678,22 @@
         },
         {
           "lines": [
-            "Båda sätten sänker snittet, men de löser olika problem.",
-            "P90 visar *worst-case*-scenarierna, medan median mäter de *vanligaste*."
+            "Båda strategier sänker snittet men de löser olika problem.",
+            "Med lösa begrepp som 'bäst' strategi är det omöjligt att veta om man pratar om samma sak.",
           ]
         },
         {
           "lines": [
-            "Både *median*, *medelvärde* och *P90* kan vara användbara mått, men de säger olika saker.",
-            "Med lösa begrepp som 'bäst' strategi är det omöjligt att veta om man pratar om samma sak.",
-            "Ha koll på statistiken. Den kan vara lurig, men den är alltid exakt."
+            "Det är populärt att upprepa mantrat *lögn, förbannad lögn, och statistik*. Men ingen här *ljög*.",
+            "Med lösa begrepp som 'bäst' strategi är det dock omöjligt att veta om man pratar om samma sak.",
+            "Det var ordvalet som var det luriga här."
           ]
-
+        },
+        {
+          "lines": [
+            "Både *median*, *medelvärde* och *P90* kan vara användbara mått, men de mäter olika saker.",
+            "Statistiken kan vara lurig men den är alltid exakt."
+          ]
         }
       ]
     },
@@ -693,7 +710,7 @@
         },
         {
           "lines": [
-            "Om jag ber dig tänka på en helt slumpmässig siffra mellan 1 och 10, vad väljer folk oftast?",
+            "Om jag ber folk tänka på en helt slumpmässig siffra mellan 1 och 10, vad väljer de oftast?",
             {
               "options": {
                 "id": "slumpsiffra",
@@ -708,8 +725,8 @@
         },
         {
           "lines": [
-            "Varför 3 och 7? 1 och 10 känns som kanter. 5 är i mitten. Jämna tal (2, 4, 6, 8) känns inte tillräckligt 'slumpartade'.",
-            "Det lämnar i stort sett bara 3 och 7 (och ibland 9) som bra kandidater för slump i vår hjärna!"
+            "Varför 3 och 7? 1 och 10 känns för extrema. 5 är i mitten. Jämna tal (2, 4, 6, 8) känns inte tillräckligt 'slumpartade'.",
+            "Det lämnar i stort sett bara 3 och 7 som bra kandidater för slump i vår hjärna!"
           ]
         },
         {
@@ -758,19 +775,19 @@
                 "yEnds": ["", ""]
               }
             },
-            "Klumparna ser ut som mönster, men är bara slump."
           ]
         },
         {
           "lines": [
-            "Om data ser för perfekt ut kan den till och med vara *påhittad*."
+            "Det är lätt att tro att klumpar är några slags mönster.",
+            "Men om data ser för perfekt ut kan den till och med vara *påhittad*."
           ]
         },
         {
           "lines": [
             "Det finns till och med ett dolt mönster i naturens siffror.",
-            "Ta massor av tal från verkligheten, folkmängder, elräkningar, flodlängder.",
-            "Vilken *första siffra* tror du är vanligast?",
+            "I statistik från verkligheten, som folkmängder, elräkningar, flodlängder...",
+            "Vilken *första siffra* i all data tror du är vanligast?",
             {
               "options": {
                 "id": "forstasiffra",
@@ -801,198 +818,19 @@
             "Ettan är först i nästan *30 %* av fallen, nian i bara *5 %*.",
             "Det kallas *Benfords lag*, revisorer använder den för att avslöja fusk i bokföring!"
           ]
-        }
-      ]
-    },
-
-    {
-      "id": "medicin",
-      "title": "Ett positivt provsvar",
-      "parts": [
-        {
-          "lines": [
-            "Tänk dig ett test för en ovanlig sjukdom. Bara 1 av 100 personer har den.",
-            "Testet är *99 % träffsäkert*."
-          ]
         },
         {
           "lines": [
-            "Du tar testet och får ett positivt svar. Hur stor är risken att du faktiskt är sjuk?",
-            {
-              "options": {
-                "id": "sakerhet",
-                "choices": ["Cirka 99 %", "Cirka 50 %", "Nästan 0 %"],
-                "correct": "Cirka 50 %",
-                "reveal": {
-                  "*": ["Faktiskt bara 50 %! Låt oss titta på prickarna för att förstå varför..."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Här är 100 personer. Bara en är faktiskt sjuk (röd).",
-            {
-              "graph": {
-                "iconGrid": {
-                  "cols": 10,
-                  "groups": [
-                    { "color": "red", "count": 1 },
-                    { "color": "grey", "count": 99 }
-                  ]
-                },
-                "legend": [
-                  { "color": "red", "label": "sjuk" },
-                  { "color": "grey", "label": "frisk" }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Alla testar sig. Testet hittar den sjuka (röd)...",
-            "...men eftersom det är 99 % träffsäkert pekar det av misstag också ut ungefär 1 av de 99 friska (orange).",
-            {
-              "graph": {
-                "iconGrid": {
-                  "cols": 10,
-                  "groups": [
-                    { "color": "red", "count": 1 },
-                    { "color": "orange", "count": 1 },
-                    { "color": "grey", "count": 98 }
-                  ]
-                },
-                "legend": [
-                  { "color": "red", "label": "sjuk (positiv)" },
-                  { "color": "orange", "label": "frisk men positiv" },
-                  { "color": "grey", "label": "frisk (negativ)" }
-                ]
-              }
-            },
-            "Av de 2 som testat positivt är alltså bara 1 sjuk!"
-          ]
-        },
-        {
-          "lines": [
-            "Eftersom sjukdomen är ovanlig blir hälften av alla larm falska!",
-            "Hur vanlig en sjukdom är (*basfrekvensen*) spelar jättestor roll.",
-            "Utan den går det int att säga hur stor risken är."
-          ]
-        },
-        {
-          "lines": [
-            "Just därför är statistik avgörande i medicinsk forskning.",
-            "Att screena hela befolkningar för extremt ovanliga sjukdomar kan skapa onödig oro på grund av alla falska larm."
+            "Det beror så klart på vilken datamängd som analyseras, men Benfords lag är förvånansvärt användbar.",
+            "Slump är svårare att fabricera än man tror."
           ]
         }
       ]
     },
 
-    {
-      "id": "opinion",
-      "title": "Kan vi lita på mätningen?",
-      "variables": {
-        "parti": ["Gröna partiet", "Blå partiet", "Röda partiet", "Gula partiet"]
-      },
-      "parts": [
-        {
-          "lines": [
-            "Före ett val görs många *opinionsmätningar*.",
-            "Vi följer $parti i *tre* mätningar."
-          ]
-        },
-        {
-          "lines": [
-            "I mars fick partiet *30 %*, i april *31 %* och i maj *32 %*.",
-            {
-              "graph": {
-                "xRange": [0, 4],
-                "yRange": [20, 40],
-                "series": [
-                  { "type": "points", "color": "teal", "data": [[1, 30], [2, 31], [3, 32]] }
-                ],
-                "xLabel": "mars → april → maj",
-                "yLabel": "stöd (%)",
-                "xEnds": ["", ""]
-              }
-            },
-            "Kurvan pekar stadigt *uppåt* — stödet växer, eller hur?"
-          ]
-        },
-        {
-          "lines": [
-            "Men kan vi vara *säkra* på att $parti verkligen har ökat?",
-            {
-              "options": {
-                "id": "okat",
-                "choices": ["Ja, om siffran är högre", "Nej"],
-                "correct": "Nej",
-                "reveal": {
-                  "*": ["Varje mätning har en *felmarginal*, låt oss rita ut den."]
-                }
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Strecken visar felmarginalen, ungefär *± 3 %*.",
-            {
-              "graph": {
-                "xRange": [0, 4],
-                "yRange": [20, 40],
-                "series": [
-                  { "type": "points", "color": "teal", "data": [[1, 30, 3], [2, 31, 3], [3, 32, 3]] }
-                ],
-                "xLabel": "mars → april → maj",
-                "yLabel": "stöd (%)",
-                "xEnds": ["", ""]
-              }
-            },
-            "Titta, strecken *överlappar* varandra hela vägen."
-          ]
-        },
-        {
-          "lines": [
-            "När felmarginalerna överlappar kan skillnaden bero på *slumpen*.",
-            "Varifrån kommer då felmarginalen? Man kan inte fråga alla väljare. När man bara frågar ett urval (t.ex. 1 000 personer) finns det alltid en osäkerhet i om de exakt speglar hela befolkningen."
-          ]
-        },
-        {
-          "lines": [
-            "Om man istället frågar *10 000* personer krymper strecken markant. Då kan även en liten ökning vara statistiskt säkerställd!",
-            {
-              "graph": {
-                "xRange": [0, 4],
-                "yRange": [20, 40],
-                "series": [
-                  { "type": "points", "color": "teal", "data": [[1, 30, 0.9], [2, 31, 0.9], [3, 32, 0.9]] }
-                ],
-                "xLabel": "mars → april → maj",
-                "yLabel": "stöd (%)",
-                "xEnds": ["", ""]
-              }
-            }
-          ]
-        },
-        {
-          "lines": [
-            "Felmarginalen skiljer sig också för olika partier i samma mätning.",
-            "Ett parti som får 30 % har *större felmarginal* (i procentenheter) än ett parti som får 4 %, eftersom det helt enkelt är svårare att träffa rätt när en stor grupp väljare kan gunga fram och tillbaka."
-          ]
-        },
-        {
-          "lines": [
-            "Sammanfattningsvis: Titta alltid efter felmarginalen. En liten förändring i procent behöver inte vara en *riktig* förändring i samhället!"
-          ]
-        }
-      ]
-    },
     {
       "id": "gamblers-fallacy",
-      "title": "Spelarens misstag",
+      "title": "Slumpens minne",
       "parts": [
         {
           "lines": [
@@ -1020,7 +858,7 @@
         },
         {
           "lines": [
-            "Att tro att slumpen \"har ett minne\" kallas *spelarens misstag* (eller spelarfällan).",
+            "Att tro att slumpen \"har ett minne\" kallas på engelska för *Gambler's fallacy*.",
             "Vi människor vill gärna se mönster och balans, så vi tänker: \"eftersom det blivit så mycket krona är det dags för klave att jämna ut det\"."
           ]
         },
@@ -1083,7 +921,193 @@
           ]
         }
       ]
+    },
+
+    {
+      "id": "medicin",
+      "title": "Ett positivt provsvar",
+      "parts": [
+        {
+          "lines": [
+            "Tänk dig ett test för en ovanlig sjukdom. Bara 1 av 100 personer har den.",
+            "Testet är *99 % träffsäkert*."
+          ]
+        },
+        {
+          "lines": [
+            "Du tar testet och får ett positivt svar. Hur stor är risken att du faktiskt är sjuk?",
+            {
+              "options": {
+                "id": "sakerhet",
+                "choices": ["Cirka 99 %", "Cirka 50 %", "Nästan 0 %"],
+                "correct": "Cirka 50 %",
+                "reveal": {
+                  "*": ["Faktiskt bara 50 %! Låt oss titta på prickarna för att förstå varför..."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Här är 100 personer. Bara en är faktiskt sjuk (röd).",
+            {
+              "graph": {
+                "iconGrid": {
+                  "cols": 10,
+                  "groups": [
+                    { "color": "red", "count": 1 },
+                    { "color": "grey", "count": 99 }
+                  ]
+                },
+                "legend": [
+                  { "color": "red", "label": "sjuk" },
+                  { "color": "grey", "label": "frisk" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Alla testar sig. Testet hittar den sjuka, men eftersom det är 99 % träffsäkert pekar det av misstag också ut ungefär 1 av de 99 friska (orange).",
+            {
+              "graph": {
+                "iconGrid": {
+                  "cols": 10,
+                  "groups": [
+                    { "color": "red", "count": 1 },
+                    { "color": "orange", "count": 1 },
+                    { "color": "grey", "count": 98 }
+                  ]
+                },
+                "legend": [
+                  { "color": "red", "label": "sjuk (positiv)" },
+                  { "color": "orange", "label": "frisk men positiv" },
+                  { "color": "grey", "label": "frisk (negativ)" }
+                ]
+              }
+            },
+          ]
+        },
+        {
+          "lines": [
+            "Av de 2 som testat positivt är alltså bara 1 sjuk!",
+            "Eftersom sjukdomen är ovanlig blir hälften av alla larm falska!",
+            "Hur vanlig en sjukdom är (*basfrekvensen*) spelar jättestor roll. Utan den går det inte att säga hur stor risken är."
+          ]
+        },
+        {
+          "lines": [
+            "Just därför är statistik avgörande i medicinsk forskning.",
+            "Att screena hela befolkningar för extremt ovanliga sjukdomar kan skapa onödig oro på grund av alla falska larm."
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "opinion",
+      "title": "Kan vi lita på mätningen?",
+      "variables": {
+        "parti": ["Gröna partiet", "Blå partiet", "Röda partiet", "Gula partiet"]
+      },
+      "parts": [
+        {
+          "lines": [
+            "Före ett val görs många *opinionsmätningar*.",
+            "Vi följer $parti i *tre* mätningar."
+          ]
+        },
+        {
+          "lines": [
+            "I mars fick partiet *30 %*, i april *31 %* och i maj *32 %*.",
+            {
+              "graph": {
+                "xRange": [0, 4],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30], [2, 31], [3, 32]] }
+                ],
+                "xLabel": "mars → april → maj",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            },
+            "Kurvan pekar stadigt *uppåt*. Stödet växer, eller hur?"
+          ]
+        },
+        {
+          "lines": [
+            "Men kan vi vara *säkra* på att $parti verkligen har ökat?",
+            {
+              "options": {
+                "id": "okat",
+                "choices": ["Ja, om siffran är högre", "Nej"],
+                "correct": "Nej",
+                "reveal": {
+                  "*": ["Varje mätning har en *felmarginal*, låt oss rita ut den."]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Strecken visar felmarginalen, ungefär *± 3 %*.",
+            {
+              "graph": {
+                "xRange": [0, 4],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30, 3], [2, 31, 3], [3, 32, 3]] }
+                ],
+                "xLabel": "mars → april → maj",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            },
+            "Titta, strecken *överlappar* varandra hela vägen."
+          ]
+        },
+        {
+          "lines": [
+            "När felmarginalerna överlappar kan skillnaden bero på *slumpen*.",
+            "Varifrån kommer då felmarginalen? Man kan inte fråga alla väljare. När man bara frågar ett urval (t.ex. 1 000 personer) finns det alltid en osäkerhet i om de exakt speglar hela befolkningen."
+          ]
+        },
+        {
+          "lines": [
+            "Om undersökningen frågar fler personer krymper felmarginalen markant. Då kan även en liten ökning vara statistiskt säkerställd!",
+            {
+              "graph": {
+                "xRange": [0, 4],
+                "yRange": [20, 40],
+                "series": [
+                  { "type": "points", "color": "teal", "data": [[1, 30, 0.9], [2, 31, 0.9], [3, 32, 0.9]] }
+                ],
+                "xLabel": "mars → april → maj",
+                "yLabel": "stöd (%)",
+                "xEnds": ["", ""]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Felmarginalen skiljer sig också för olika partier i samma mätning.",
+            "Ett parti som får 30 % har *större felmarginal* (i procentenheter) än ett parti som får 4 %, eftersom det helt enkelt är svårare att träffa rätt."
+          ]
+        },
+        {
+          "lines": [
+            "Sammanfattningsvis: Titta alltid efter felmarginalen, och var kritisk mot statistiska undersökningar som inte redovisar den.",
+            "En visad förändring behöver inte vara en *riktig* förändring i samhället!"
+          ]
+        }
+      ]
     }
+
   ],
 
   "outro": {

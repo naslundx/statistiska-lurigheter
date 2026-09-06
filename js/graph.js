@@ -8,7 +8,6 @@
 
 const SVG_NS = "http://www.w3.org/2000/svg";
 
-// Named palette (matches CSS custom properties). Hex values also accepted.
 const COLORS = {
   blue: "#4d8bf0",
   red: "#ff5c72",
