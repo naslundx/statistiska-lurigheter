@@ -138,6 +138,20 @@ function renderIntro() {
   start.addEventListener("click", startJourney);
   hero.appendChild(start);
 
+  let savedPage = 0;
+  try {
+    savedPage = parseInt(localStorage.getItem("statsexplainer_page") || "0", 10);
+  } catch (e) {}
+
+  if (savedPage > 1) {
+    const continueBtn = document.createElement("button");
+    continueBtn.type = "button";
+    continueBtn.className = "btn btn--continue";
+    continueBtn.textContent = "Fortsätt från senast";
+    continueBtn.addEventListener("click", () => jumpToPage(savedPage));
+    hero.appendChild(continueBtn);
+  }
+
   stage.appendChild(hero);
 }
 
@@ -151,6 +165,9 @@ function startJourney() {
 function renderOutro() {
   topbar.hidden = true;
   clearPageUrl();
+  try {
+    localStorage.removeItem("statsexplainer_page");
+  } catch (e) {}
   const outro = state.data.outro || {};
   stage.innerHTML = "";
 
@@ -307,9 +324,14 @@ function currentPageNumber() {
 }
 
 function updatePageUrl() {
+  const pageNum = currentPageNumber();
   const url = new URL(window.location.href);
-  url.searchParams.set("page", String(currentPageNumber()));
+  url.searchParams.set("page", String(pageNum));
   window.history.replaceState(null, "", url);
+  
+  try {
+    localStorage.setItem("statsexplainer_page", String(pageNum));
+  } catch (e) {}
 }
 
 function clearPageUrl() {
