@@ -1089,12 +1089,16 @@
   "outro": {
     "emoji": "🎉",
     "title": "Bra jobbat!",
-    "text": "Den 13 september 2026 är det val i Sverige. Att förstå matematik och statistik hjälper dig att inte bli lurad av diagram, rubriker eller opinionsmätningar. Vill du lära dig mer?",
+    "text": [
+      "Den 13 september 2026 är det val i Sverige.",
+      "Att förstå matematik och statistik hjälper dig att inte bli lurad av diagram, rubriker eller opinionsmätningar.",
+      "Vill du lära dig mer?"
+    ],
     "links": [
-      { "label": "Matteboken, lär dig mer matematik", "url": "https://www.matteboken.se" },
-      { "label": "En Summa av Ögonblick", "url": "https://www.esao.se" },
-      { "label": "Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se" },
-      { "label": "Information om valet", "url": "https://www.riksdagen.se/sv/aktuellt/valet-2026/" }
+      { "label": "Matteboken, lär dig mer matematik", "url": "https://www.matteboken.se", "image": "assets/matteboken.png" },
+      { "label": "En Summa av Ögonblick", "url": "https://www.esao.se", "image": "assets/esao.png" },
+      { "label": "Verklighetens Kvadratrötter", "url": "https://www.kvadratrot.se", "image": "assets/vk.jpg", "cover": true },
+      { "label": "Information om valet", "url": "https://www.riksdagen.se/sv/aktuellt/valet-2026/", "image": "assets/val.svg", "cover": true }
     ],
     "restart": "Börja om"
   }

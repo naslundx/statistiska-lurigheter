@@ -2,8 +2,10 @@
 // App shell: loads content, generates variables, and drives navigation
 // through intro -> topics/parts -> outro.
 
-import { resolveVariables } from "./variables.js";
-import { renderPart } from "./render.js";
+import { resolveVariables, renderText } from "./variables.js";
+import { renderPart, LINE_DELAY } from "./render.js";
+
+const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const stage = document.getElementById("stage");
 const topbar = document.getElementById("topbar");
@@ -162,7 +164,7 @@ function startJourney() {
   renderCurrent();
 }
 
-function renderOutro() {
+async function renderOutro() {
   topbar.hidden = true;
   clearPageUrl();
   try {
@@ -173,31 +175,71 @@ function renderOutro() {
 
   const hero = document.createElement("div");
   hero.className = "hero";
-  hero.innerHTML = `
-    <div class="hero__emoji">${outro.emoji || "🎉"}</div>
-    <h1 class="hero__title">${escape(outro.title || "Bra jobbat!")}</h1>
-    <p class="hero__subtitle">${escape(outro.text || "")}</p>
-  `;
+  
+  const emoji = document.createElement("div");
+  emoji.className = "hero__emoji";
+  emoji.textContent = outro.emoji || "🎉";
+  hero.appendChild(emoji);
+
+  const title = document.createElement("h1");
+  title.className = "hero__title";
+  title.textContent = outro.title || "Bra jobbat!";
+  hero.appendChild(title);
+  
+  stage.appendChild(hero);
+
+  const itemsToReveal = [];
+
+  const texts = Array.isArray(outro.text) ? outro.text : (outro.text ? [outro.text] : []);
+  for (const t of texts) {
+    const p = document.createElement("p");
+    p.className = "hero__subtitle line--text";
+    p.style.visibility = "hidden";
+    p.innerHTML = renderText(t, {});
+    hero.appendChild(p);
+    itemsToReveal.push(p);
+  }
 
   if (Array.isArray(outro.links) && outro.links.length) {
     const ul = document.createElement("ul");
-    ul.className = "links";
-    outro.links.forEach((l) => {
+    ul.className = "links links--outro";
+    hero.appendChild(ul);
+    
+    for (const l of outro.links) {
       const li = document.createElement("li");
+      li.style.visibility = "hidden";
       const a = document.createElement("a");
       a.href = l.url || "#";
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.textContent = l.label;
+      a.className = "link-card";
+      
+      if (l.image) {
+        const img = document.createElement("img");
+        img.src = l.image;
+        img.alt = "";
+        img.className = "link-card__image";
+        if (l.cover) {
+          img.style.objectFit = "cover";
+        }
+        a.appendChild(img);
+      }
+      
+      const span = document.createElement("span");
+      span.innerHTML = renderText(l.label, {});
+      span.className = "link-card__label";
+      a.appendChild(span);
+      
       li.appendChild(a);
       ul.appendChild(li);
-    });
-    hero.appendChild(ul);
+      itemsToReveal.push(li);
+    }
   }
 
   const restart = document.createElement("button");
   restart.type = "button";
   restart.className = "btn btn--start";
+  restart.style.visibility = "hidden";
   restart.textContent = outro.restart || "Börja om";
   restart.addEventListener("click", () => {
     // Regenerate variables so numbers change (no statefulness).
@@ -205,8 +247,15 @@ function renderOutro() {
     renderIntro();
   });
   hero.appendChild(restart);
+  itemsToReveal.push(restart);
 
   stage.appendChild(hero);
+
+  for (const el of itemsToReveal) {
+    await delay(LINE_DELAY);
+    el.style.visibility = "visible";
+    el.classList.add("line");
+  }
 }
 
 /* ------------------------------------------------------------ Navigation */
