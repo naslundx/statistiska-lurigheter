@@ -386,7 +386,6 @@ body {
   margin: 0;
   font-size: clamp(2.1rem, 9vw, 3.4rem);
   font-weight: 700;
-  line-height: 1.05;
   background: linear-gradient(120deg, var(--c-pink), var(--c-purple), var(--c-blue));
   -webkit-background-clip: text;
   background-clip: text;
