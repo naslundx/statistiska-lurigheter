@@ -60,8 +60,8 @@ scripts/check-content.py  Validerar content.json
     - `["a", "b", ...]` (lista med text) → slumpat val.
   - **En rad (`lines[]`) kan vara:**
     - En textsträng. Stöder `$variabel` och `*emfas*` (färgad markering).
-    - `{ "graph": { ... } }` – se nedan.
-    - `{ "options": { "id", "choices", "correct?", "reveal?" } }` – svarsknappar.
+    - `{ "graph": { ... } }`: se nedan.
+    - `{ "options": { "id", "choices", "correct?", "reveal?" } }`: svarsknappar.
       När en `part` har `options` visas ingen "Nästa"-knapp förrän man svarat.
       `reveal` kan visa uppföljningsrader per svar, eller `"*"` för alla.
   - En `part` kan ha `showIf: { question, equals }` för att bara visas om ett
@@ -86,11 +86,11 @@ scripts/check-content.py  Validerar content.json
 
 Serietyper:
 
-- `points` – punkter. En datapunkt är `[x, y]` eller `[x, y, felmarginal]`
+- `points`: punkter. En datapunkt är `[x, y]` eller `[x, y, felmarginal]`
   (felmarginalen ritas som ett stapelstreck).
-- `line` – linje genom punkterna. `"style": "dashed"` ger streckad linje.
+- `line`: linje genom punkterna. `"style": "dashed"` ger streckad linje.
   `"smooth": true` ger en mjuk, icke-linjär kurva (spline) istället för raka segment.
-- `bars` – stapeldiagram. `barWidth` (i x-enheter) styr breddan. Utan `color`
+- `bars`: stapeldiagram. `barWidth` (i x-enheter) styr breddan. Utan `color`
   blir staplarna regnbågsfärgade; ange `color` för en enda färg.
 
 **Axelbeskrivningar och ändvärden:** lägg till `xLabel`/`yLabel` för en beskrivning
