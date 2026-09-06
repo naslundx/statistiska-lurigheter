@@ -173,7 +173,6 @@
       {
         "lines": [
           "Tänk om vi *drar ut* linjen ända tills barnet fyller 10 år (streckad linje)?",
-          TODO add a point that shows the extrapolated person at age 10
           {
             "graph": {
               "xRange": [0, 540],
@@ -181,11 +180,13 @@
               "series": [
                 { "type": "points", "color": "green", "data": [[0,50],[2,52],[4,54],[6,56],[8,58],[10,60],[12,62]] },
                 { "type": "line", "color": "blue", "data": [[0,50],[12,62]] },
-                { "type": "line", "color": "purple", "style": "dashed", "data": [[12,62],[520,550]] }
+                { "type": "line", "color": "purple", "style": "dashed", "data": [[12,62],[520,550]] },
+                { "type": "points", "color": "purple", "data": [[520,550]] }
               ],
               "legend": [
                 { "type": "line", "color": "blue", "label": "trend" },
-                { "type": "dashed", "color": "purple", "label": "utdragen linje" }
+                { "type": "dashed", "color": "purple", "label": "utdragen linje" },
+                { "color": "purple", "label": "10-åring" }
               ],
               "xLabel": "ålder",
               "yLabel": "längd (cm)",
@@ -197,7 +198,7 @@
       },
       {
         "lines": [
-          "Stämmer det att 10-åringen rimligen blir 5,5 meter lång?"
+          "Stämmer det att 10-åringen rimligen blir 5,5 meter lång?",
           {
             "options": {
               "id": "rimligt",
@@ -244,26 +245,29 @@
       },
       {
         "lines": [
-          TODO Change this followup example to a savings account. Money increases thanks to interest. Show a linear increase. Does this extrapolation work? Answer: No - because it is exponential! Even if the assumption is correct, not everything is *linear*. Important!
-          "Men extrapolering kan vara användbart! Tänk på *Moores lag*, som i decennier förutsade hur många transistorer som fick plats på ett datachip.",
+          "Låt oss ta ett annat exempel: Ett sparkonto med ränta-på-ränta.",
+          "Vi kollar hur pengarna växer de första åren och *extrapolerar* med en rak linje.",
           {
             "graph": {
-              "xRange": [1970, 2020],
-              "yRange": [0, 50000],
-              "xLabel": "årtal",
-              "yLabel": "transistorer (miljoner)",
-              "xEnds": ["1970", "2020"],
+              "xRange": [0, 40],
+              "yRange": [0, 500],
+              "xLabel": "år",
+              "yLabel": "tusen kronor",
+              "xEnds": ["0 år", "40 år"],
               "series": [
-                { "type": "points", "color": "teal", "data": [[1971,0.002],[1978,0.029],[1982,0.134],[1989,1.18],[1993,3.1],[1997,7.5],[2000,42],[2004,125],[2008,731],[2012,2600],[2016,7200],[2020,50000]] },
-                { "type": "line", "color": "purple", "smooth": true, "data": [[1970,0.001],[1980,0.1],[1990,1],[2000,40],[2010,1000],[2020,50000]] }
+                { "type": "points", "color": "teal", "data": [[0,10], [5,16], [10,26]] },
+                { "type": "line", "color": "purple", "style": "dashed", "data": [[0,10], [40,74]] },
+                { "type": "line", "color": "blue", "smooth": true, "data": [[0,10], [10,26], [20,67], [30,174], [40,453]] }
               ],
               "legend": [
-                { "color": "teal", "label": "chip" },
-                { "type": "line", "color": "purple", "label": "exponentiell trend" }
+                { "color": "teal", "label": "uppmätta besparingar" },
+                { "type": "dashed", "color": "purple", "label": "linjär extrapolering" },
+                { "type": "line", "color": "blue", "label": "verklig utveckling (exponentiell)" }
               ]
             }
           },
-          "Den är inte en rak linje, utan en *exponentiell* kurva. Antalet dubblerades ungefär vartannat år, och kurvan stack iväg brant uppåt. Rätt form gav rätt förutsägelse!"
+          "Fungerar extrapoleringen? Nej! Ränta-på-ränta gör att pengarna växer *exponentiellt*.",
+          "Även om vi vet att pengarna ökar, är det farligt att anta att all utveckling är *linjär*!"
         ]
       }
     ]
@@ -276,17 +280,15 @@
       "stad": ["Göteborg", "Örebro", "Luleå", "Helsingborg"]
     },
     "parts": [
-      TODO fix so it always refers to savings, not salary
       {
         "lines": [
           "Vi frågade ungefär $N personer i $stad två saker:",
           "- Hur gamla de är, och",
-          "- Hur mycket pengar de tjänar",
+          "- Hur mycket pengar de har sparat",
           "(All data här är påhittad)"
         ]
       },
       {
-        TODO add a few more points outside the trend line in each group
         "lines": [
           "Först tittar vi bara på *kvinnorna* (röda).",
           {
@@ -294,7 +296,7 @@
               "xRange": [15, 65],
               "yRange": [0, 100],
               "series": [
-                { "type": "points", "color": "red", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80],[48,90]] },
+                { "type": "points", "color": "red", "data": [[16,48],[18,58],[20,55],[24,60],[25,45],[26,58],[28,66],[30,64],[35,70],[40,80],[42,65],[48,90]] },
                 { "type": "line", "color": "red", "data": [[16,48],[48,90]] }
               ],
               "legend": [
@@ -315,7 +317,7 @@
               "xRange": [15, 65],
               "yRange": [0, 100],
               "series": [
-                { "type": "points", "color": "blue", "data": [[28,10],[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                { "type": "points", "color": "blue", "data": [[28,10],[30,25],[36,16],[40,20],[44,26],[46,24],[48,15],[50,32],[54,34],[58,28],[60,42],[64,50]] },
                 { "type": "line", "color": "blue", "data": [[28,10],[64,50]] }
               ],
               "legend": [
@@ -330,7 +332,7 @@
       },
       {
         "lines": [
-          "Båda grupperna visar alltså att äldre tjänar mer.",
+          "Båda grupperna visar alltså att äldre har sparat mer.",
           "Om vi slår ihop *alla* i samma diagram...",
           "...tror du att den gemensamma trenden måste visa samma sak?",
           {
@@ -353,7 +355,7 @@
               "xRange": [15, 65],
               "yRange": [0, 100],
               "series": [
-                { "type": "points", "color": "purple", "data": [[16,48],[20,55],[24,60],[26,58],[28,66],[30,64],[35,70],[40,80],[48,90],[28,10],[36,16],[40,20],[44,26],[46,24],[50,32],[54,34],[60,42],[64,50]] },
+                { "type": "points", "color": "purple", "data": [[16,48],[18,58],[20,55],[24,60],[25,45],[26,58],[28,66],[30,64],[35,70],[40,80],[42,65],[48,90],[28,10],[30,25],[36,16],[40,20],[44,26],[46,24],[48,15],[50,32],[54,34],[58,28],[60,42],[64,50]] },
                 { "type": "line", "color": "purple", "style": "dashed", "data": [[16,60],[64,32]] }
               ],
               "legend": [
@@ -364,7 +366,7 @@
               "yLabel": "sparat (tkr)"
             }
           },
-          "Människor närmare pensionen tjänar överlag mindre än människor närmare 15."
+          "Människor närmare pensionen har överlag sparat mindre än människor närmare 15."
         ]
       },
       {
@@ -387,10 +389,10 @@
           ]
       },
       {
-        TODO skip the real example and explain that we need to think about how data is divided, which groups are interesting? cities vs rural areas might say completely opposite things.
         "lines": [
-          "Ett verkligt exempel: 1973 anklagades UC Berkeley för att diskriminera kvinnor. Totalt sett antogs färre kvinnor än män, men per utbildning antogs en *högre* andel kvinnor!",
-          "Kvinnorna sökte till svårare utbildningar där få antogs totalt, medan männen sökte till enklare."
+          "Detta påminner oss om att alltid tänka på hur data *delas upp*.",
+          "Vilka grupper är egentligen intressanta att titta på? Uppdelningar kan ge helt nya perspektiv.",
+          "Trender kan ibland se helt annorlunda ut om man jämför exempelvis landsbygd med storstäder, istället för hela riket!"
         ]
       }
     ]
@@ -417,15 +419,21 @@
                 "xRange": [0, 10],
                 "yRange": [0, 160],
                 "series": [
-                  { "type": "points", "color": "blue", "data": [[1,28],[2,31],[3,29],[4,34],[5,30],[6,32],[7,30],[8,26]] }
+                  { "type": "points", "color": "blue", "data": [[1,28],[2,31],[3,29],[4,34],[5,30],[6,32],[7,30],[8,26]] },
+                  { "type": "line", "color": "purple", "style": "dashed", "data": [[0,30],[10,30]] },
+                  { "type": "line", "color": "green", "style": "dashed", "data": [[0,30],[10,30]] }
+                ],
+                "legend": [
+                  { "color": "blue", "label": "kollegor" },
+                  { "type": "dashed", "color": "purple", "label": "medelvärde" },
+                  { "type": "dashed", "color": "green", "label": "median" }
                 ],
                 "xLabel": "kollegorna",
                 "yLabel": "månadslön (tkr)",
                 "xEnds": ["", ""]
               }
             },
-            TODO in order to talk about average salary, we can talk about average or median. draw both here first. Adapt the rest of the topic.
-            "Ganska jämna löner, runt 30 000 kr i månaden."
+            "Oftast används antingen *medelvärde* eller *median* för att prata om snitt. Här ligger båda på exakt 30 000 kr."
           ]
         },
         {
@@ -590,7 +598,7 @@
         {
           "lines": [
             "P90 är den tid som *9 av 10* ambulanser klarar sig under.",
-            "Eller: De *10 % värsta* larmen tar längre tid än så."
+            "Eller: De *10 % värsta* larmen tar längre tid än så.",
             {
               "graph": {
                 "xRange": [0, 32],
@@ -679,7 +687,7 @@
         {
           "lines": [
             "Båda strategier sänker snittet men de löser olika problem.",
-            "Med lösa begrepp som 'bäst' strategi är det omöjligt att veta om man pratar om samma sak.",
+            "Med lösa begrepp som 'bäst' strategi är det omöjligt att veta om man pratar om samma sak."
           ]
         },
         {
@@ -774,7 +782,7 @@
                 "xEnds": ["", ""],
                 "yEnds": ["", ""]
               }
-            },
+            }
           ]
         },
         {
@@ -987,7 +995,7 @@
                   { "color": "grey", "label": "frisk (negativ)" }
                 ]
               }
-            },
+            }
           ]
         },
         {
