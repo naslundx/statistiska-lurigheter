@@ -989,6 +989,100 @@
           ]
         }
       ]
+    },
+    {
+      "id": "gamblers-fallacy",
+      "title": "Spelarens misstag",
+      "parts": [
+        {
+          "lines": [
+            "Du singlar slant fem gånger och får *krona* varje gång.",
+            "Det känns som att det nästan *måste* bli klave nästa gång, eller hur?"
+          ]
+        },
+        {
+          "lines": [
+            "Om du fått 5 krona i rad, vad är chansen att få krona igen på 6:e kastet?",
+            {
+              "options": {
+                "id": "myntkast",
+                "choices": ["Mindre än 50 %", "Exakt 50 %", "Mer än 50 %"],
+                "correct": "Exakt 50 %",
+                "reveal": {
+                  "*": [
+                    "Myntet har inget minne. Det vet inte vad det landade på förut.",
+                    "Varje nytt kast har exakt samma chans: 50 % krona, 50 % klave."
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Att tro att slumpen \"har ett minne\" kallas *spelarens misstag* (eller spelarfällan).",
+            "Vi människor vill gärna se mönster och balans, så vi tänker: \"eftersom det blivit så mycket krona är det dags för klave att jämna ut det\"."
+          ]
+        },
+        {
+          "lines": [
+            "Ett klassiskt exempel sker på kasinon med roulette-hjulet.",
+            "Hälften av fälten är *röda*, hälften är *svarta* (om vi struntar i den gröna nollan).",
+            "Tänk dig att kulan precis har landat på *rött* 10 gånger i rad.",
+            {
+              "graph": {
+                "iconGrid": {
+                  "cols": 10,
+                  "groups": [
+                    { "color": "red", "count": 10 }
+                  ]
+                },
+                "legend": [
+                  { "color": "red", "label": "rött" }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "lines": [
+            "Vad händer vid bordet?",
+            "Folk tänker \"Det har blivit rött så många gånger, nu måste det bli svart!\" och börjar satsa massor av pengar på svart."
+          ]
+        },
+        {
+          "lines": [
+            "Men folk kan också tänka:",
+            "\"Det har blivit rött så många gånger, det är det som ger pengar nu!\""
+          ]
+        },
+        {
+          "lines": [
+            "Men hjulet minns inte sina tidigare snurr.",
+            "Nästa kula har fortfarande hälften röda ytor och hälften svarta att landa på.",
+            "Chansen för svart nästa snurr är exakt lika stor som den alltid är."
+          ]
+        },
+        {
+          "lines": [
+            "Men stämmer inte *de stora talens lag*,",
+            "att om vi kastar jättemånga gånger så blir det hälften krona och hälften klave till slut?"
+          ]
+        },
+        {
+          "lines": [
+            "Jo, på *lång sikt* jämnar det ut sig.",
+            "(Eller vill alla köpa en tröstglass efter sina olyckor?)",
+            "Den tvingar inte fram klave i ditt *nästa* kast för att jämna ut siffrorna på kort sikt."
+          ]
+        },
+        {
+          "lines": [
+            "Så nästa gång du tror att turen \"måste\" vända snart, kom ihåg:",
+            "Slumpen har inget minne. Det är bara vi människor som försöker hitta mönster i bruset."
+          ]
+        }
+      ]
     }
   ],
 
